@@ -1,9 +1,9 @@
 # Linking the remote API with MATLAB
 
-Install the V-REP bindings for MATLAB:
+Install the Coppelia bindings for MATLAB:
 
-1. You must copy three files from the directory of the V-REP app (downloaded at the previous step) to the directory named 
-youbot within your local copy of the GitHub repository. The three files you need to copy are named: 
+1. You must copy three files from the directory of the Coppelia app (downloaded at the previous step) to the directory of the 
+ robot you want to used, (subfolder YYY for robot named YYY). The three files you need to copy are named: 
       1. remApi.m
       2. remoteApiProto.m
       3. remoteApi.so (if you use Linux) or remoteApi.dll (if you use Windows) or remoteApi.dylib (if you use a Mac).
@@ -14,12 +14,12 @@ youbot within your local copy of the GitHub repository. The three files you need
 You will find these files in the directory containing the V-REP app. 
 Look in the programming/remoteApiBindings/lib/lib and programming/remoteApiBindings/matlab/matlab 
 subdirectories of the Coppelia app directory (although this can change from version to version). 
-You must copy these files to the Youbot directory within your copy of the GitHub repo.
+You must copy these files to the appropriate robot directory within your copy of the GitHub repo.
 
-2. In MATLAB, change to the youbot directory. On Linux/Mac:
+2. In MATLAB, change to the robot directory. For robot YYY, On Linux/Mac:
 
 ```bash
-cd xxx/Setup/Matlab/Youbot"
+cd xxx/Setup/Matlab/YYY"
 ```
 
 Then perform a first connection test by typing:
