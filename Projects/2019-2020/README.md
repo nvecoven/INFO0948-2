@@ -42,7 +42,7 @@ The [help](https://www.coppeliarobotics.com/helpFiles/) of the robot simulator C
 
 *   Important dates (unless otherwise noted, all project items are due by 11:59 pm):
 
-    *   01/04/2020: midterm code and report,
+    *   <span style="color:blue">01/04/2020</span>: midterm code and report,
     *   29/05/2020 ~~(15/05/2020)~~: final code and report,
     *   02-03/06/2020: final presentation.
 
