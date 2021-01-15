@@ -34,10 +34,10 @@ The Coppelia developers are actively supporting TRS. If you cannot solve this is
 
 Startup Coppelia (Linux: ./vrep.sh from within V-REP's directory; Windows: in your Start menu), 
 use the menu "File/Open Scene", and open ~/Setup/Coppelia/Scenes/binding_test.ttt. Hit "Start Simulation" in the Simulation menu. 
-Then, back in MATLAB, go to the youbot folder. On Linux/Mac:
+Then, back in MATLAB, go to the YYY robot folder. On Linux/Mac:
 
 ```bash
-cd xxx/Setup/Matlab/Youbot"
+cd xxx/Setup/Matlab/YYY"
 ```
 
 Then run the binding_test script:
