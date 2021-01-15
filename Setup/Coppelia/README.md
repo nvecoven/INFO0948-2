@@ -1,10 +1,9 @@
-# Coppelia installation
+# CoppeliaSim installation
 
-# Coppelia edu download and install
+# CoppeliaSim Edu download and install
 
-First, download the "Coppelia Edu" version on the following link : https://coppeliarobotics.com/downloads.html
+First, download the latest version of [CoppeliaSim Edu](https://www.coppeliarobotics.com/downloads).
 
 Once downloaded, unpack the archive and install it in your folder of choice.
- If your firewall asks you whether Coppelia should be allowed, 
- always answer yes: the communication between Python and 
- Cppelia will take place via the network (internal to your computer). Otherwise, you will face problems later on.
+
+If your firewall asks you whether CoppeliaSim should be allowed, always answer yes: the communication between CoppeliaSim and MATLAB or Python  will take place via the network (internal to your computer). Otherwise, you will face problems later on.
