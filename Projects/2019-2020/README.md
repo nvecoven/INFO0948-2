@@ -65,11 +65,14 @@ Each team must submit a _zip_ archive containing:
 
     In the report, you should summarize the main points of your implementation. The report should _not_ consist of a list of functions that you used in your project. We are more interested in the _why_ than the _what_. For example, if you chose a specific pathfinding algorithm, explain why this one and not another. In addition, the report should contain a diagram of the finite state machine controlling your youBot.
 
-    The report should be (at most) one page long using the provided LaTeX template ([ieeeconf.zip](ieeeconf.zip)).
+    The report should be (at most) one page long using the provided LaTeX template ([ieeeconf.zip](docs/ieeeconf.zip)).
 
 
 The midterm report is due on the [Montefiore submission platform](https://submit.montefiore.ulg.ac.be/) on April 1, 2020, at 11:59 pm. This is a hard deadline.
 
+## Midterm feedback
+
+Here is the [midterm feedback](docs/midterm-feedback.pdf).
 
 ## Final report
 
@@ -89,7 +92,7 @@ Each team must submit a _zip_ archive containing:
 
     In addition, the report should contain a diagram of the finite state machine controlling your youBot.
 
-    The report should be between five and ten pages long using the provided LaTeX template ([ieeeconf.zip](ieeeconf.zip)).
+    The report should be between five and ten pages long using the provided LaTeX template ([ieeeconf.zip](docs/ieeeconf.zip)).
 
 
 The final report is due on the [Montefiore submission platform](https://submit.montefiore.ulg.ac.be/) on May 15, 2020, at 11:59 pm. This is a hard deadline.
@@ -115,4 +118,4 @@ We will provide a new map 15 minutes before your presentation. So be ready to ru
 
 ## Montefiore server access via ssh
 
-[Document borrowed from INFO2009.](devoirs-ssh.pdf)
+[Document borrowed from INFO2009.](docs/devoirs-ssh.pdf)
