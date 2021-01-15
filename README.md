@@ -1,6 +1,6 @@
 # **TRS:** An Open-source Recipe for Teaching/Learning Robotics with a Simulator
 
-#### :: setup a laptop in 5 minutes, write a control, navigation, vision or manipulation program in 100 lines of code
+###### :: setup a laptop in 5 minutes, write a control, navigation, vision or manipulation program in 100 lines of code
 
 
 
