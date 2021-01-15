@@ -22,9 +22,9 @@ The [help](https://www.coppeliarobotics.com/helpFiles/) of the robot simulator C
 
     1. (compulsory): Explore the whole map (and build an appropriate representation), by accessing the GPS coordinates (i.e. `simxGetObjectPosition` can be used on the youBot). For this milestone you can call `simxGetObjectOrientation` on the youBot whenever needed.
 
-    2. (compulsory): Same as (1.1), but `simxGetObjectPosition` can only be called once per minute (note that the exploration should remain fluid). For this milestone you can call `simxGetObjectOrientation` on the youBot whenever needed, there is no restriction.
+    2. (compulsory): Same as (1.i), but `simxGetObjectPosition` can only be called once per minute (note that the exploration should remain fluid). For this milestone you can call `simxGetObjectOrientation` on the youBot whenever needed, there is no restriction.
 
-    3. (optional): Same as (1.1) but without calling `simxGetObjectPosition` at all, furthermore, for this milestone you can not call `simxGetObjectOrientation` on the youBot at all.
+    3. (optional): Same as (1.i) but without calling `simxGetObjectPosition` at all, furthermore, for this milestone you can not call `simxGetObjectOrientation` on the youBot at all.
 
 
 2. **Manipulation**  
@@ -49,7 +49,7 @@ The [help](https://www.coppeliarobotics.com/helpFiles/) of the robot simulator C
 
 ## Midterm report
 
-For the midterm report, we expect you to complete the **Navigation (1.1)**.
+For the midterm report, we expect you to complete the **Navigation (1.i)**.
 
 Each team must submit a _zip_ archive containing:
 
