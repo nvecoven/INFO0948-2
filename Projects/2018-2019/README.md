@@ -1,4 +1,4 @@
-# Project Definition
+# Project (before 2019-2020)
 
 The goal of the project is to program a youBot to put away groceries. You have control of one youBot that can move around a virtual house. Groceries are waiting in the hall. You need to provide the youBot with a program that allows it to move the groceries to their appropriate storing locations.
 
