@@ -1,47 +1,116 @@
-# Project Definition
+# Project
 
-The goal of the project is to program a youBot to put away groceries. You have control of one youBot that can move around a virtual house. Groceries are waiting in the hall. You need to provide the youBot with a program that allows it to move the groceries to their appropriate storing locations.
+## Context
 
-![house](raster/vrep-house.jpg)
+In this project, you will program a robotic agent that (i) gathers information about its environment using the sensors, (ii) plans a set of actions to respond appropriately to sensed data based on a pre-existing strategy, and (iii) executes a set of motor commands to carry out the actions that the plan calls for. The robot will be simulated in the robot simulator [CoppeliaSim](https://www.coppeliarobotics.com/).
 
-Object are either cylindrical or box-shaped. The bases of boxes and cylinders are fixed, only their height varies. The base of box-like objects is 50 mm by 50 mm. The diameter of the base of cylinders is 50 mm. The color of objects varies. Objects are initially placed on two tables facing the youBot's starting position. (The two tables are visible with the Hokuyo sensor from the youBot's starting position. No other cylindrical objects are within sight of the Hokuyo from the youBot's starting position.) On one table, objects are placed upright. On the other table, objects are not necessarily placed upright – they may be laid down or tilted.
+The general framework for the project relies on [TRS](http://ulgrobotics.github.io/trs/), an open-source project developed by [Renaud Detry](http://renaud-detry.net/). TRS's [website](http://ulgrobotics.github.io/trs/) and [GitHub repository](https://github.com/ULgRobotics/trs) are full of useful information:
 
-The size of the house is fixed (see `house.ttt`). However, the youBot does not know the layout of the house a priori. All obstacles are high enough to be detectable with the Hokuyo sensor. There are no holes or open doors leading outside the house. There are five baskets around the house, whose location is not fixed, although they are always close to room/hallway corners. Baskets and tables are cylinders, 800 mm in diameter, and 185 mm in height. The tables and baskets are the only cylindrical objects resting on the floor. Next to each basket is a landmark object (of approximately the same size as the youBot), that allows the youBot to identify the room in which it is located. For instance, one basket could be placed next to a bike (garage), or next to a computer (office). The youBot has access to a list of instructions consisting of pairs of object descriptors (green box, blue cylinder...) and images. Instructions are accessed via `load instructions.mat inst`. This structure follows the following schema:
+*   [detailed installation instructions](http://ulgrobotics.github.io/trs/setup.html),
+*   [complete demo of the youBot (Matlab)](https://github.com/ULgRobotics/trs/blob/master/youBot/),
+*   [more focused demos of the youBot (Matlab)](https://github.com/ULgRobotics/trs/tree/master/youBot/focused),
+*   [list of forbidden functions](http://ulgrobotics.github.io/trs/project.html#api).
 
-*   `inst(1).shape`: shape of the first object (either `box` or `cylinder`).
-*   `inst(1).color`: color of the first object (R, G, B values).
-*   `inst(1).picture`: path to an image of the landmark next to which is located the basket in which object 1 must go.
-*   `inst(2).shape`: shape of the second object (either `box` or `cylinder`).
-*   `inst(2).color`: color of the second object (R, G, B values).
-*   `inst(2).picture`: path to an image of the landmark next to which is located the basket in which object 2 must go.
-*   ...
+The [help](https://www.coppeliarobotics.com/helpFiles/) of the robot simulator CoppeliaSim is also a good source of information.
 
-The goal of the project is to move each object to the appropriate basket. At most one object can be stored on the platform of the youBot. The image below illustrates the layout explained above. A V-REP file similar to the one on which projects will be tested is available in the Git repository (see directory `youbot`).
+## Specific milestones
 
-![house](raster/vrep-house-youbot2.jpg)
+1. **Navigation**  
+    For this milestone, you should build a custom controller for the youBot, which should use its holonomic properties. In particular, _we do not allow the use of pure pursuit controller controllerPurePursuit from Matlab's Robotics System Toolbox._
 
-## Milestones
+    1. (compulsory): Explore the whole map (and build an appropriate representation), by accessing the GPS coordinates (i.e. `simxGetObjectPosition` can be used on the youBot). For this milestone you can call `simxGetObjectOrientation` on the youBot whenever needed.
 
-1.  **Navigation**  
-    Building a map of the house (a map of the walls and other obstacles).
-    1.  Using accurate localization (via [`simxGetObjectPosition`](https://www.coppeliarobotics.com/helpFiles/en/remoteApiFunctionsPython.htm#simxGetObjectPosition) on `youBot_ref` or `youBot_center`)
-    2.  Without using [`simxGetObjectPosition`](https://www.coppeliarobotics.com/helpFiles/en/remoteApiFunctionsPython.htm#simxGetObjectPosition) on `youBot_ref` or `youBot_center`.
-2.  **Manipulation**  
-    Picking up objects and moving them to any room of the house (except the room where the objects start in), not necessarily in a basket.
-    1.  Moving only the objects from the first table (where objects stand upright), using V-REP IK. Objects can fall on the floor.
-    2.  Moving all the objects (both tables), using V-REP IK. Objects can fall on the floor.
-    3.  Moving all the objects (both tables), using V-REP IK. Objects _cannot_ fall on the floor.
-    4.  Moving all the objects (both tables), _without_ using V-REP IK. Objects _cannot_ fall on the floor.
-3.  **Vision**  
-    Finding and identifying the baskets.
-    1.  Finding the baskets and the tables.
-    2.  Recognizing the landmark objects accompanying the baskets, based on the data from `instructions.mat`.
-4.  **Manipulation and Vision**
-    1.  Placing the objects into arbitrary baskets (as long as there is the same number of objects in each basket). (Requires at least 2.1 and 3.1.)
-    2.  Placing the objects into the appropriate basket, as indicated by `instructions.mat`. (Requires at least 2.1 and 3.2.)
-5.  **Calibration**  
-    Computing the transformation between the frame of the vision sensor, and the frame of the robot. (Without `simxGetObjectOrientation` on `rgbdSensor`.)
-6.  **Bonus Milestone: create a video of your work!**  
-    Ideally including a view from the simulator, and of the robot process (for instance, the map being constructed). In V-REP, the menu _Tools_ has a _Video Recorder_ option that allows you to save the simulator's image stream to disk.
+    2. (compulsory): Same as (1.1), but `simxGetObjectPosition` can only be called once per minute (note that the exploration should remain fluid). For this milestone you can call `simxGetObjectOrientation` on the youBot whenever needed, there is no restriction.
 
-For you to claim a milestone, your robot must be able to perform the corresponding task _without_ prior knowledge of the room in which it is placed (except for the hypotheses mentioned on this page).
+    3. (optional): Same as (1.1) but without calling `simxGetObjectPosition` at all, furthermore, for this milestone you can not call `simxGetObjectOrientation` on the youBot at all.
+
+
+2. **Manipulation**  
+    For this Milestone, the youBot will need to access a “TargetTable” object, which position you will have to find thanks to the youBot's sensors. Note that this table is the same as the ones on which objects are initially lying. _To distinguish them, you can make the assumption that the "TargetTable" will always start empty (no objects initially lying on it)._
+
+    1. (compulsory): The youBot should grab all the object on table 1, without any falling on the ground and put them on the target table.
+
+    2. (optional): The youBot should grab all the object on both tables, without any falling on the ground and put them on the target table.
+
+## Instructions
+
+*   You can work in teams of up to two people.
+
+*   Your deliverables must be submitted as a _zip_ archive on the [Montefiore submission platform](https://submit.montefiore.ulg.ac.be/).
+
+*   Important dates (unless otherwise noted, all project items are due by 11:59 pm):
+
+    *   01/04/2020: midterm code and report,
+    *   29/05/2020 ~~(15/05/2020)~~: final code and report,
+    *   02-03/06/2020: final presentation.
+
+
+## Midterm report
+
+For the midterm report, we expect you to complete the **Navigation (1.1)**.
+
+Each team must submit a _zip_ archive containing:
+
+*   The source code of the youBot.
+
+*   A short commented video or a link to the video (max. 5 minutes).
+
+    In the video, the youBot should explore and eventually map its entire environment. The video should show the youtBot in action but should also emphasize how the youBot plans its actions. For example, showing the evolution of the map as the youBot builds it, showing potential new targets to explore and how the youBot chooses one, showing the planned trajectory to the chosen target, etc.
+
+    The video should last (at most) 5 minutes.
+
+*   A short written report named `midterm-report.pdf` (max. 1 page).
+
+    In the report, you should summarize the main points of your implementation. The report should _not_ consist of a list of functions that you used in your project. We are more interested in the _why_ than the _what_. For example, if you chose a specific pathfinding algorithm, explain why this one and not another. In addition, the report should contain a diagram of the finite state machine controlling your youBot.
+
+    The report should be (at most) one page long using the provided LaTeX template ([ieeeconf.zip](ieeeconf.zip)).
+
+
+The midterm report is due on the [Montefiore submission platform](https://submit.montefiore.ulg.ac.be/) on April 1, 2020, at 11:59 pm. This is a hard deadline.
+
+
+## Final report
+
+For the final report, we expect you to complete all compulsory milestones (and some of the optional milestones if you want to).
+
+Each team must submit a _zip_ archive containing:
+
+*   The source code of the youBot.
+
+*   A video (or a link to the video in the report).
+
+    In the video, the youBot should solve the milestones on the provided map. The video should show the youtBot in action but should also emphasize how the youBot plans its actions.
+
+*   A short written report named `final-report.pdf` (between five and ten pages).
+
+    In the report, you should summarize the main points of your implementation. The report should _not_ consist of a list of functions that you used in your project. We are more interested in the _why_ than the _what_. For example, if you chose a specific pathfinding algorithm, explain why this one and not another.
+
+    In addition, the report should contain a diagram of the finite state machine controlling your youBot.
+
+    The report should be between five and ten pages long using the provided LaTeX template ([ieeeconf.zip](ieeeconf.zip)).
+
+
+The final report is due on the [Montefiore submission platform](https://submit.montefiore.ulg.ac.be/) on May 15, 2020, at 11:59 pm. This is a hard deadline.
+
+## Final presentation
+
+The final presentation consists of:
+
+*   a live demonstration of your solutions on a new map with a live comment from your team. The video will be used as a back-up solution in case your code doesn't run as expected on the new map.
+
+*   (if needed) a short slide presentation to further explain some of your ideas.
+
+*   a discussion with the teaching team to place your work in the context of the course.
+
+
+We will provide a new map 15 minutes before your presentation. So be ready to run your code on _your_ laptop (we highly recommend using one of the laptops that you used to develop your project).
+
+## Useful links
+
+*   [Robotics System Toolbox](https://www.mathworks.com/products/robotics.html), by MathWorks
+*   [Robotics Toolbox for MATLAB](https://petercorke.com/toolboxes/robotics-toolbox/), by Peter Corke
+*   [OBS Studio](https://obsproject.com/), a free and open-source software suite for recording
+
+## Montefiore server access via ssh
+
+[Document borrowed from INFO2009.](devoirs-ssh.pdf)
