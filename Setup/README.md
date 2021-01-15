@@ -366,7 +366,7 @@ An example of the computational cost of flipping an image with a loop vs. a MATL
 
 The MATLAB JIT accelerator doesn't optimize code typed into the console, even though recent versions of MATLAB have greatly improved in terms of performance. To verify this behavior, run the function above by typing `test_loop_vs_native` in the console, then by copy-pasting the contents of the `test_loop_vs_native` function directly into the console. As a result of this behavior, always run your code from `.m` files.
 
-# YouBot Tips
+# youBot Tips
 
 ## Unintentional Movements
 
