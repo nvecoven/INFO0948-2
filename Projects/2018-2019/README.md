@@ -52,9 +52,9 @@ The goal of the project is to move each object to the appropriate basket. At mos
 
 4.  **Manipulation and Vision**
 
-    1.  Placing the objects into arbitrary baskets (as long as there is the same number of objects in each basket). (Requires at least 2.1 and 3.1.)
+    1.  Placing the objects into arbitrary baskets (as long as there is the same number of objects in each basket). (Requires at least 2.i and 3.i.)
 
-    2.  Placing the objects into the appropriate basket, as indicated by `instructions.mat`. (Requires at least 2.1 and 3.2.)
+    2.  Placing the objects into the appropriate basket, as indicated by `instructions.mat`. (Requires at least 2.i and 3.ii.)
 
 
 5.  **Calibration**  
