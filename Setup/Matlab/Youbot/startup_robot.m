@@ -1,3 +1,6 @@
+
+
+
 % Run this file with
 %   run('/path/to/git/repo/matlab_config/startup_robot.m');
 
