@@ -22,7 +22,7 @@ vrep.simxSetJointTargetVelocity(id, wheel1, 10);
 
 An understanding of the simulator itself is not required, as all the programming is done through the MATLAB interface.
 
-The behavior of the youBot shown in this video is coded in MATLAB in 500 lines of code. The youBot explores and maps its environment, and it detects and marks rounded baskets. The code runs in quasi-realtime on a standard laptop. Download this video in [MP4/H.264](http://renaud-detry.net/teaching/info0948/raster/youbot.mp4) or [WebM/VP8](http://renaud-detry.net/teaching/info0948/raster/youbot.webm), or [view it on Youtube](javascript:%20window.open('https://www.youtube.com/watch?v=bPSdZCewp7Y')).
+The behavior of the youBot shown in this video is coded in MATLAB in 500 lines of code. The youBot explores and maps its environment, and it detects and marks rounded baskets. The code runs in quasi-realtime on a standard laptop. Download this video in [MP4/H.264](http://renaud-detry.net/teaching/info0948/raster/youbot.mp4) or [WebM/VP8](http://renaud-detry.net/teaching/info0948/raster/youbot.webm), or [view it on Youtube](https://www.youtube.com/watch?v=bPSdZCewp7Y).
 
 ## What You Get
 
