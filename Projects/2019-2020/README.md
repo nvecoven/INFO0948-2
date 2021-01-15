@@ -36,15 +36,15 @@ The [help](https://www.coppeliarobotics.com/helpFiles/) of the robot simulator C
 
 ## Instructions
 
-*   You can work in teams of up to two people.
+* You can work in teams of up to two people.
 
-*   Your deliverables must be submitted as a _zip_ archive on the [Montefiore submission platform](https://submit.montefiore.ulg.ac.be/).
+* Your deliverables must be submitted as a _zip_ archive on the [Montefiore submission platform](https://submit.montefiore.ulg.ac.be/).
 
-*   Important dates (unless otherwise noted, all project items are due by 11:59 pm):
+* Important dates (unless otherwise noted, all project items are due by 11:59 pm):
 
-    *   <span style="color:blue">01/04/2020</span>: midterm code and report,
-    *   29/05/2020 ~~(15/05/2020)~~: final code and report,
-    *   02-03/06/2020: final presentation.
+    * ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) 01/04/2020: midterm code and report,
+    * ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) 29/05/2020 ~~(15/05/2020)~~: final code and report,
+    * ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) 02-03/06/2020: final presentation.
 
 
 ## Midterm report
