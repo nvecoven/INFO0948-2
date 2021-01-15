@@ -105,9 +105,9 @@ The list below shows the functions that are authorized, some with restrictions. 
 
 Click here to [show](javascript: $('.vrep_denied').show())/[hide](javascript: $('.vrep_denied').hide()) unauthorized functions. Note that, by default, functions not shown in the list are off-limits.
 
-*   [simxAddStatusbarMessage](https://www.coppeliarobotics.com/helpFiles/en/remoteApiFunctionsMatlab.htm#simxAddStatusbarMessage)
+*   :white_check_mark: [simxAddStatusbarMessage](https://www.coppeliarobotics.com/helpFiles/en/remoteApiFunctionsMatlab.htm#simxAddStatusbarMessage)
 
-*   [simxAppendStringSignal](https://www.coppeliarobotics.com/helpFiles/en/remoteApiFunctionsMatlab.htm#simxAppendStringSignal)
+*   :red_circle: [simxAppendStringSignal](https://www.coppeliarobotics.com/helpFiles/en/remoteApiFunctionsMatlab.htm#simxAppendStringSignal)
 
 *   [simxAuxiliaryConsoleClose](https://www.coppeliarobotics.com/helpFiles/en/remoteApiFunctionsMatlab.htm#simxAuxiliaryConsoleClose)
 
