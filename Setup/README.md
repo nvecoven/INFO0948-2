@@ -10,8 +10,15 @@ Install the CoppeliaSim bindings for Python or Matlab. Explanations are given in
 
 You should now have been able to perform the binding test without getting errors.
 
+---
+
+:white_check_mark:
+
+:red_circle:
 
 ---
+
+
 
 # Programming the youBot
 
