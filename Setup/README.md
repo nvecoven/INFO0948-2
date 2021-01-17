@@ -18,7 +18,6 @@ You should now have been able to perform the binding test without getting errors
 
 ---
 
-
 # Programming the youBot
 
 First, follow the [setup procedure](setup.html) to get your laptop ready.
