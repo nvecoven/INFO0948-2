@@ -94,7 +94,7 @@ The documentation of the CoppeliaSim simulator is available [here](http://www.Co
 
 Other useful tools:
 
-*   [MeshLab](http://meshlab.sourceforge.net) is an open-source graphical app for manipulating meshes. For instance, you can use it to inspect shapes from the CoppeliaSim environment. In CoppeliaSim, click on a shape and use the _Export as OBJ_ menu to write the shape to a file. In MeshLab, you can for instance use the ruler tool ![ruler](raster/ruler.png) to measure the length of the object.
+*   [MeshLab](http://meshlab.sourceforge.net) is an open-source graphical app for manipulating meshes. For instance, you can use it to inspect shapes from the CoppeliaSim environment. In CoppeliaSim, click on a shape and use the _Export as OBJ_ menu to write the shape to a file. In MeshLab, you can for instance use the ruler tool ![ruler](../img/ruler.png) to measure the length of the object.
 
 # CoppeliaSim Remote API: Authorized Calls
 
