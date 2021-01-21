@@ -1,4 +1,4 @@
-# Linking the remote API with MATLAB
+# Setting up Matlab client
 
 Install the CoppeliaSim bindings for MATLAB:
 
@@ -13,7 +13,7 @@ Install the CoppeliaSim bindings for MATLAB:
 
 2.  In MATLAB, change to the robot directory. For robot YYY, On Linux/Mac:
     ```bash
-    cd xxx/Setup/Matlab/myfavoriterobot
+    cd ~/trs/Setup/Matlab/myfavoriterobot
     ```
 
     Then perform a first connection test by typing:
@@ -28,7 +28,7 @@ Install the CoppeliaSim bindings for MATLAB:
 Then, back in MATLAB, go to the `myfavoriterobot` robot folder. On Linux/Mac:
 
     ```bash
-    cd xxx/Setup/Matlab/myfavoriterobot
+    cd ~/trs/Setup/Matlab/myfavoriterobot
     ```
 
     Then run the `binding_test` script:

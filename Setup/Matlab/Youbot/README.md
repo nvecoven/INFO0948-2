@@ -2,7 +2,7 @@
 
 In MATLAB, run the startup_robot.m file provided via the Git repository. 
 ```matlab
-run('XXX/Setup/Matlab/Youbot/startup_robot.m');
+run('~/trs/Setup/Matlab/Youbot/startup_robot.m');
 ```
 
 This line needs to be run every time MATLAB restarts. 
