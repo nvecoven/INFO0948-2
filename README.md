@@ -52,8 +52,9 @@ TRS was created by [Renaud Detry](http://renaud-detry.net/) for a [course taught
 ###### &copy; Renaud Detry 2014. This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
 
 
----
 
+<!--
+---
 
 ## This repository contains all the files and informations needed for the projects of the robotic's course.
 
@@ -62,3 +63,5 @@ the instructions regarding the project in the Projects folder and proceed to tes
 Good luck.
 
 http://ulgrobotics.github.io/trs/
+
+-->
