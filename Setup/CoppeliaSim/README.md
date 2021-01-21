@@ -1,4 +1,6 @@
-# CoppeliaSim Edu installation
+# CoppeliaSim Edu
+
+## CoppeliaSim installation
 
 First, download the latest version of [CoppeliaSim Edu](https://www.coppeliarobotics.com/downloads).
 
@@ -8,7 +10,7 @@ If your firewall asks you whether CoppeliaSim should be allowed, always answer *
 
 Once done, you can proceed to linking [CoppeliaSim with the language of your choice](https://github.com/nvecoven/robotic_rework/tree/main/Setup).
 
-# Documentation And Useful Links
+## Documentation And Useful Links
 
 The Robotics Toolbox's documentation is available [here](http://petercorke.com/Robotics_Toolbox.html).
 
@@ -28,7 +30,7 @@ Other useful tools:
 *   [MeshLab](http://meshlab.sourceforge.net) is an open-source graphical app for manipulating meshes. For instance, you can use it to inspect shapes from the CoppeliaSim environment. In CoppeliaSim, click on a shape and use the _Export as OBJ_ menu to write the shape to a file. In MeshLab, you can for instance use the ruler tool ![ruler](../img/ruler.png) to measure the length of the object.
 
 
-# CoppeliaSim Remote API: Authorized Calls
+## CoppeliaSim Remote API: Authorized Calls
 
 In your project, you will be allowed to use only a subset of the CoppeliaSim API. Off-limits functions are, for instance, functions that change the environment (adding/removing/moving objects), functions that access information that would not be available to the robot in a real setup, or functions that move the robot in an unrealistic way.
 
@@ -307,20 +309,20 @@ Note that, by default, functions not shown in the list are off-limits.
 
 
 
-# CoppeliaSim Tips
+## CoppeliaSim Tips
 
-## Unintentional Movements
+### Unintentional Movements
 
 CoppeliaSim does a pretty good job of simulating the real world. This can sometimes lead to unexpected problems. For instance, if no input is given to the wheels and the arm is swung back and front, the robot will move back and forth (slightly). In the third example below, you can verify that the final robot position is about a centimeter further than the initial position.
 
-## Physics Engine
+### Physics Engine
 
 We recommend using the ODE engine.
 
 
-# Troubleshooting CoppeliaSim with MATLAB
+## Troubleshooting CoppeliaSim with MATLAB
 
-## Avoiding Mysteriously Dangerous Calls
+### Avoiding Mysteriously Dangerous Calls
 
 For a mysterious reason, calling
 
@@ -330,6 +332,6 @@ with only **one return value** crashes some versions of MATLAB. Always use the m
 
 `[res det auxData auxPacketInfo] = vrep.simxReadVisionSensor(id, hokuyo1Handle, vrep.simx_opmode_buffer);`
 
-## CoppeliaSim Crashing at Startup, or MATLAB Cannot Connect to CoppeliaSim
+### CoppeliaSim Crashing at Startup, or MATLAB Cannot Connect to CoppeliaSim
 
 When CoppeliaSim quits, the port that it was using to listen for connexions is not freed immediately. If your CoppeliaSim crashes when you try to start it up, or if you cannot connect to CoppeliaSim from MATLAB, quit CoppeliaSim, wait a few dozen seconds, and try again.

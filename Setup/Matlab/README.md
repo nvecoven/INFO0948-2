@@ -11,7 +11,7 @@
 
     You will find these files in the directory containing the CoppeliaSim app. Look in the `programming/remoteApiBindings/lib/lib` and `programming/remoteApiBindings/matlab/matlab` subdirectories of the CoppeliaSim app directory (although this can change from version to version). You must copy these files to the appropriate robot directory within your copy of the GitHub repo.
 
-2.  In MATLAB, change to the robot directory. For robot YYY, On Linux/Mac:
+2.  In MATLAB, change to the robot directory. For robot `myfavoriterobot`, On Linux/Mac:
     ```bash
     cd ~/trs/Setup/Matlab/myfavoriterobot
     ```
