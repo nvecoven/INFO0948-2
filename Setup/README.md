@@ -2,7 +2,7 @@
 
 ## CoppeliaSim installation
 
-First, download and install the CoppeliaSim application as detailed in the "Coppelia" subfolder.
+First, download and install the CoppeliaSim application as detailed in the "CoppeliaSim" subfolder.
 
 ## Install python / matlab components
 
