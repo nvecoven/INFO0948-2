@@ -358,6 +358,6 @@ with only **one return value** crashes some versions of MATLAB. Always use the m
 
 `[res det auxData auxPacketInfo] = vrep.simxReadVisionSensor(id, hokuyo1Handle, vrep.simx_opmode_buffer);`
 
-## CoppeliaSim Crashing at Startup, or MATALB Cannot Connect to CoppeliaSim
+## CoppeliaSim Crashing at Startup, or MATLAB Cannot Connect to CoppeliaSim
 
 When CoppeliaSim quits, the port that it was using to listen for connexions is not freed immediately. If your CoppeliaSim crashes when you try to start it up, or if you cannot connect to CoppeliaSim from MATLAB, quit CoppeliaSim, wait a few dozen seconds, and try again.
