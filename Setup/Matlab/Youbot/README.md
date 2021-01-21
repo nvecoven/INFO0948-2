@@ -20,7 +20,7 @@ The [example script](https://github.com/ULgRobotics/trs/blob/master/youbot/youbo
 
 1.  Open the file [`house.ttt`](https://github.com/nvecoven/robotic_rework/blob/main/Setup/Coppelia/Scenes/House/house.ttt) in CoppeliaSim.
 
-2.  In MATLAB, go to (`cd`) to the `youbot` directory, and start the `youbot` script. It automatically starts the simulation; if it did not work, hit the _start simulation_ button ![start](../../img/simulation1.jpg).
+2.  In MATLAB, go to (`cd`) to the `youbot` directory, and start the `youbot` script. It automatically starts the simulation; if it did not work, hit the _start simulation_ button ![start](https://github.com/nvecoven/robotic_rework/blob/main/img/simulation1.jpg).
 
 The sections below provide more details about the youBot's sensors, actuators, and gripper.
 
