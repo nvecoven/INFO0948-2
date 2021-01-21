@@ -13,7 +13,7 @@ Install the CoppeliaSim bindings for MATLAB:
 
 2.  In MATLAB, change to the robot directory. For robot YYY, On Linux/Mac:
     ```bash
-    cd xxx/Setup/Matlab/YYY
+    cd xxx/Setup/Matlab/myfavoriterobot
     ```
 
     Then perform a first connection test by typing:
