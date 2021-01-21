@@ -24,7 +24,7 @@
 
     If there is no error, the MATLAB bindings to CoppeliaSim are loaded! If there is an error, check the steps above, check the Troubleshooting section below, and read CoppeliaSim's MATLAB bindings help. The CoppeliaSim developers are actively supporting TRS. If you cannot solve this issue, post a question on the CoppeliaSim forums.
 
-3.  Startup CoppeliaSim (Linux: `./vrep.sh` from within CoppeliaSim's directory; Windows: in your Start menu), use the menu "File/Open Scene", and open `~/Setup/Coppelia/Scenes/binding_test.ttt`. Hit "Start Simulation" in the Simulation menu.
+3.  Startup CoppeliaSim (Linux: `./coppeliaSim.sh` from within CoppeliaSim's directory; Windows: in your Start menu), use the menu "File/Open Scene", and open `~/Setup/Coppelia/Scenes/binding_test.ttt`. Hit "Start Simulation" in the Simulation menu.
 Then, back in MATLAB, go to the `myfavoriterobot` robot folder. On Linux/Mac:
 
     ```bash
