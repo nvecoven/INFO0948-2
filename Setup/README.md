@@ -2,7 +2,7 @@
 
 ## CoppeliaSim installation
 
-First, download and install the CoppeliaSim application as detailed in the "CoppeliaSim" subfolder.
+First, download and install the CoppeliaSim application as detailed [here](https://github.com/nvecoven/robotic_rework/tree/main/Setup/CoppeliaSim).
 
 ## Install python / matlab components
 
