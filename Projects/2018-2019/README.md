@@ -16,7 +16,7 @@ The size of the house is fixed (see `house.ttt`). However, the youBot does not k
 *   `inst(2).picture`: path to an image of the landmark next to which is located the basket in which object 2 must go.
 *   ...
 
-The goal of the project is to move each object to the appropriate basket. At most one object can be stored on the platform of the youBot. The image below illustrates the layout explained above. A V-REP file similar to the one on which projects will be tested is available in the Git repository (see directory `youbot`).
+The goal of the project is to move each object to the appropriate basket. At most one object can be stored on the platform of the youBot. The image below illustrates the layout explained above. A CoppeliaSim file similar to the one on which projects will be tested is available in the Git repository (see directory `youbot`).
 
 ![house](raster/vrep-house-youbot2.jpg)
 

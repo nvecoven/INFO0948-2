@@ -1,12 +1,12 @@
 # Setup for the project.
 
-## Coppelia installation
+## CoppeliaSim installation
 
-First, download and install the Coppelia application as detailed in the "Coppelia" subfolder.
+First, download and install the CoppeliaSim application as detailed in the "Coppelia" subfolder.
 
 ## Install python / matlab components
 
-Install the CoppeliaSim bindings for [Python](https://github.com/nvecoven/robotic_rework/tree/main/Setup/Python) or 
+Install the CoppeliaSim bindings for [Python](https://github.com/nvecoven/robotic_rework/tree/main/Setup/Python) or
 [Matlab](https://github.com/nvecoven/robotic_rework/tree/main/Setup/Matlab). Explanations are given in the respective subfolders.
 
 You should now have been able to perform the binding test without getting errors.
