@@ -2,7 +2,7 @@
 
 Install the Coppelia bindings for MATLAB:
 
-1.  You must copy three files from the directory of the Coppelia app (downloaded at the previous step) to the directory of the robot you want to used, (subfolder YYY for robot named YYY). The three files you need to copy are named:
+1.  You must copy three files from the directory of the Coppelia app (downloaded at the [previous step](https://github.com/nvecoven/robotic_rework/tree/main/Setup/Coppelia)) to the directory of the robot you want to use, (subfolder YYY for robot named YYY). The three files you need to copy are named:
     *   `remApi.m`
     *   `remoteApiProto.m`
     *   `remoteApi.so` (if you use Linux) or `remoteApi.dll` (if you use Windows) or `remoteApi.dylib` (if you use a Mac).
