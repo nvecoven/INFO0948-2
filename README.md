@@ -28,8 +28,8 @@ The behavior of the youBot shown in this video is coded in MATLAB in 500 lines o
 
 TRS provides a recipe for organizing a Master-level robotics project. The project consists in using a mobile robot to pickup groceries from a table and move them to different baskets distributed across a house. The project involves control, navigation, mapping, vision and manipulation. The recipe is composed of:
 
-*   a page that explains how to [setup](./Setup/README.md) a laptop to work on the project
-*   a page that presents the [project definition](./Projects/README.md): objectives, milestones, a description of the robot and the documentation of the MATLAB functions that access the robot's sensors and actuators
+*   a page that explains how to [setup](./Setup/) a laptop to work on the project
+*   a page that presents the [project definition](./Projects/): objectives, milestones, a description of the robot and the documentation of the MATLAB functions that access the robot's sensors and actuators
 *   a MATLAB script that illustrates access the robot's sensors and actuators
 *   a CoppeliaSim model of a building floor, and a few MATLAB scripts that make programming easier
 
