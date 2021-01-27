@@ -20,10 +20,8 @@ from youbot_init import youbot_init
 from youbot_drive import youbot_drive
 from youbot_hokuyo_init import youbot_hokuyo_init
 from youbot_hokuyo import youbot_hokuyo
-from beacon_init import beacon_init
+from beacon import beacon_init, get_beacon_distance
 from utils_sim import angdiff
-from utils_sim import get_beacon_distance
-
 
 # Test the python implementation of a youbot
 # Initiate the connection to the simulator.
