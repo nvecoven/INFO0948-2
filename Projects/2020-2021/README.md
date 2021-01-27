@@ -74,7 +74,7 @@ Each team must submit a _zip_ archive containing:
     The report should be (at most) one page long using the provided LaTeX template ([ieeeconf.zip](docs/ieeeconf.zip)).
 
 
-The midterm report is due on the [Montefiore submission platform](https://submit.montefiore.ulg.ac.be/) on April 1, 2020, at 11:59 pm.
+The midterm report is due on the [Montefiore submission platform](https://submit.montefiore.ulg.ac.be/) on TBD.
 
 ## Useful links
 
