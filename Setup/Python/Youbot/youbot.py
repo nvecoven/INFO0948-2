@@ -21,15 +21,17 @@ from youbot_init import youbot_init
 from youbot_drive import youbot_drive
 from youbot_hokuyo_init import youbot_hokuyo_init
 from youbot_hokuyo import youbot_hokuyo
+from beacon_init import beacon_init
 from utils_sim import angdiff
+from utils_sim import get_beacon_distance
 
 
 # Test the python implementation of a youbot
-# Initiate the connection to the simulator. 
+# Initiate the connection to the simulator.
 print('Program started')
 # Use the following line if you had to recompile remoteApi
-#vrep = remApi('remoteApi', 'extApi.h')
-#vrep = remApi('remoteApi')
+# vrep = remApi('remoteApi', 'extApi.h')
+# vrep = remApi('remoteApi')
 
 # Close the connection in case if a residual connection exists
 vrep.simxFinish(-1)
@@ -38,28 +40,30 @@ clientID = vrep.simxStart('127.0.0.1',  19997, True, True, 2000, 5)
 # Synchronous mode
 returnCode = vrep.simxSynchronous(clientID, True)
 
-# If you get an error like: 
-#   Remote API function call returned with error code: 64. Explanation: simxStart was not yet called.
-# Make sure your code is within a function! You cannot call V-REP from a script. 
+# If you get an error like:
+#   Remote API function call returned with error code: 64.
+# Explanation: simxStart was not yet called.
+# Make sure your code is within a function!
+# You cannot call V-REP from a script. 
 if clientID < 0:
     sys.exit('Failed connecting to remote API server. Exiting.')
 
-print('Connection ' +str(clientID) + ' to remote API server open')
+print('Connection ' + str(clientID) + ' to remote API server open')
 
 # Make sure we close the connection whenever the script is interrupted.
-#cleanup_vrep(vrep, id)
+# cleanup_vrep(vrep, id)
 
-# This will only work in "continuous remote API server service". 
+# This will only work in "continuous remote API server service".
 # See http://www.v-rep.eu/helpFiles/en/remoteApiServerSide.htm
-vrep.simxStartSimulation(clientID, vrep.simx_opmode_blocking);
+vrep.simxStartSimulation(clientID, vrep.simx_opmode_blocking)
 
 # Retrieve all handles, mostly the Hokuyo.
 h = youbot_init(vrep, clientID)
-h = youbot_hokuyo_init(vrep, h);
+h = youbot_hokuyo_init(vrep, h)
+beacons_handle = beacon_init(vrep, clientID)
 
-# The time step the simulator is using (your code should run close to it). 
+# The time step the simulator is using (your code should run close to it).
 timestep = .05
-
 
 ##############################################################################
 #                                                                            #
@@ -85,9 +89,12 @@ res, youbotPos = vrep.simxGetObjectPosition(clientID, h['ref'], -1, vrep.simx_op
 h = youbot_drive(vrep, h, forwBackVel, rightVel, rotateRightVel)
 
 # Send a Trigger to the simulator: this will run a time step for the physic engine
-# because of the synchronous mode.
-vrep.simxSynchronousTrigger(clientID)
-vrep.simxGetPingTime(clientID)
+# because of the synchronous mode. Run several iterations to stabilize the simulation
+# 1s = time_step*nb_sim
+print(int(1./timestep))
+for i in range(int(1./timestep)):
+    vrep.simxSynchronousTrigger(clientID)
+    vrep.simxGetPingTime(clientID)
 
 ## Start the demo. 
 while True:
@@ -100,14 +107,11 @@ while True:
         vrchk(vrep, res, True) # Check the return value from the previous V-REP call (res) and exit in case of error.
         res, youbotEuler = vrep.simxGetObjectOrientation(clientID, h['ref'], -1, vrep.simx_opmode_buffer)
         vrchk(vrep, res, True)
+        # Get the distance from the beacons
+        beacon_dist = get_beacon_distance(vrep, clientID, beacons_handle, h)
+        print("Beacon dist:", beacon_dist)
         
-        w1 = - h["previousForwBackVel"] - h["previousLeftRightVel"] + h['previousRotVel']
-        w2 = - h["previousForwBackVel"] + h["previousLeftRightVel"] + h['previousRotVel']
-        w3 = - h["previousForwBackVel"] - h["previousLeftRightVel"] - h['previousRotVel']
-        w4 = - h["previousForwBackVel"] + h["previousLeftRightVel"] - h['previousRotVel']
-        wheels_vel = [w1, w2, w3, w4]
-        
-        # Get data from the hokuyo
+        # Get data from the hokuyo - return empty if data is not captured
         scanned_points, contacts = youbot_hokuyo(vrep, h, vrep.simx_opmode_buffer)
         ## Apply the state machine. 
         if fsm == 'forward':
