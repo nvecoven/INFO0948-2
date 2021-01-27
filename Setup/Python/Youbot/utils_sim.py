@@ -30,7 +30,9 @@ def get_beacon_distance(vrep, clientID, beacons_handle, youbot_handle):
 
     Parameters
     ----------
+    vrep: the vrep simulator
     clientID: (int) the client identification number
+    beacons_handle: (list of int) the beacons identification numbers
     youbot_handle: (int) the youbot identification number
 
     Return
