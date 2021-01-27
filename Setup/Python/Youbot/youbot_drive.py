@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import numpy as np
 
-from youbot.vrchk import vrchk
+from vrchk import vrchk
 
 
 def youbot_drive(vrep, h, forwBackVel, leftRightVel, rotVel):

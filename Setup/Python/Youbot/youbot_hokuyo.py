@@ -8,11 +8,6 @@ def youbot_hokuyo(vrep, h, opmode, trans=None):
     # Distributed under the GNU General Public License.
     # (See http://www.gnu.org/copyleft/gpl.html)
     
-    pts1 = []
-    pts2 = []
-    obst1 = []
-    obst2 = []
-    
     if trans is not None:
         t1 = trans*h['hokuyo1Trans']
         t2 = trans*h['hokuyo2Trans']
@@ -34,7 +29,6 @@ def youbot_hokuyo(vrep, h, opmode, trans=None):
         # away all points that are 5m far from the sensor.
         obst1 = pts1[:,3] < 4.9999
         pts1 = pts1[:, 0:3]
-     
     
     # Process the other 120 degrees      
     res, det, auxData = vrep.simxReadVisionSensor(h['id'], h['hokuyo2'], opmode)

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from youbot.vrchk import vrchk
+from vrchk import vrchk
 
 def youbot_init(vrep, id):
     #Initialize youBot

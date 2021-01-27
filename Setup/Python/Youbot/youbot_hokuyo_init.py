@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from youbot.vrchk import vrchk
+from vrchk import vrchk
 from robopy.base.transforms import transl, trotx, troty, trotz
 
 def youbot_hokuyo_init(vrep, h):
