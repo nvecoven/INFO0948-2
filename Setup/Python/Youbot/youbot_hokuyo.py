@@ -29,6 +29,8 @@ def youbot_hokuyo(vrep, h, opmode, trans=None):
         # away all points that are 5m far from the sensor.
         obst1 = pts1[:,3] < 4.9999
         pts1 = pts1[:, 0:3]
+    else:
+        return [], []
     
     # Process the other 120 degrees      
     res, det, auxData = vrep.simxReadVisionSensor(h['id'], h['hokuyo2'], opmode)
@@ -38,6 +40,8 @@ def youbot_hokuyo(vrep, h, opmode, trans=None):
         pts2 = np.reshape(auxData[1][2:], (width*height, 4))
         obst2 = pts2[:, 3] < 4.9999
         pts2 = pts2[:, 0:3]
+    else:
+        return [], []
         
     # Translate the points in the repere of the Hokuyo
     pts_1 = np.ones((pts1.shape[0], pts1.shape[1]+1)); pts_1[:,:-1] = pts1
