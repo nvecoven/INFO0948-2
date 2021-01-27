@@ -34,6 +34,9 @@ print('Program started')
 vrep.simxFinish(-1)
 clientID = vrep.simxStart('127.0.0.1',  19997, True, True, 2000, 5)
 
+# The time step the simulator is using (your code should run close to it).
+timestep = .05
+
 # Synchronous mode
 returnCode = vrep.simxSynchronous(clientID, True)
 
@@ -54,13 +57,24 @@ print('Connection ' + str(clientID) + ' to remote API server open')
 # See http://www.v-rep.eu/helpFiles/en/remoteApiServerSide.htm
 vrep.simxStartSimulation(clientID, vrep.simx_opmode_blocking)
 
+# Send a Trigger to the simulator: this will run a time step for the physic engine
+# because of the synchronous mode. Run several iterations to stabilize the simulation
+for i in range(int(1./timestep)):
+    vrep.simxSynchronousTrigger(clientID)
+    vrep.simxGetPingTime(clientID)
+
 # Retrieve all handles, mostly the Hokuyo.
 h = youbot_init(vrep, clientID)
 h = youbot_hokuyo_init(vrep, h)
 beacons_handle = beacon_init(vrep, clientID)
 
-# The time step the simulator is using (your code should run close to it).
-timestep = .05
+# Send a Trigger to the simulator: this will run a time step for the physic engine
+# because of the synchronous mode. Run several iterations to stabilize the simulation
+for i in range(int(1./timestep)):
+    vrep.simxSynchronousTrigger(clientID)
+    vrep.simxGetPingTime(clientID)
+
+
 
 ##############################################################################
 #                                                                            #
@@ -88,7 +102,6 @@ h = youbot_drive(vrep, h, forwBackVel, rightVel, rotateRightVel)
 
 # Send a Trigger to the simulator: this will run a time step for the physic engine
 # because of the synchronous mode. Run several iterations to stabilize the simulation
-print(int(1./timestep))
 for i in range(int(1./timestep)):
     vrep.simxSynchronousTrigger(clientID)
     vrep.simxGetPingTime(clientID)
