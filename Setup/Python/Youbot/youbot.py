@@ -13,7 +13,6 @@ import vrep
 import time
 import numpy as np
 import sys
-import matplotlib.pyplot as plt
 
 from cleanup_vrep import cleanup_vrep
 from vrchk import vrchk
@@ -44,7 +43,7 @@ returnCode = vrep.simxSynchronous(clientID, True)
 #   Remote API function call returned with error code: 64.
 # Explanation: simxStart was not yet called.
 # Make sure your code is within a function!
-# You cannot call V-REP from a script. 
+# You cannot call V-REP from a script.
 if clientID < 0:
     sys.exit('Failed connecting to remote API server. Exiting.')
 
@@ -73,11 +72,12 @@ timestep = .05
 # Define all the variables which will be used through the whole simulation.
 # Important: Set their initial values.
 
-# Parameters for controlling the youBot's wheels: at each iteration, those values will be set for the wheels. 
-# They are adapted at each iteration by the code. 
-forwBackVel = 0 # Move straight ahead. 
-rightVel = 0 # Go sideways. 
-rotateRightVel = 0 # Rotate. 
+# Parameters for controlling the youBot's wheels: at each iteration,
+# those values will be set for the wheels.
+# They are adapted at each iteration by the code.
+forwBackVel = 0  # Move straight ahead.
+rightVel = 0  # Go sideways.
+rotateRightVel = 0  # Rotate.
 
 # First state of state machine
 fsm = 'forward'
@@ -90,98 +90,99 @@ h = youbot_drive(vrep, h, forwBackVel, rightVel, rotateRightVel)
 
 # Send a Trigger to the simulator: this will run a time step for the physic engine
 # because of the synchronous mode. Run several iterations to stabilize the simulation
-# 1s = time_step*nb_sim
 print(int(1./timestep))
 for i in range(int(1./timestep)):
     vrep.simxSynchronousTrigger(clientID)
     vrep.simxGetPingTime(clientID)
 
-## Start the demo. 
+# Start the demo. 
 while True:
     try:
+        # Check the connection with the simulator
         if vrep.simxGetConnectionId(clientID) == -1:
             sys.exit('Lost connection to remote API.')
-        
-        # Get the position and the orientation of the robot. 
+
+        # Get the position and the orientation of the robot.
         res, youbotPos = vrep.simxGetObjectPosition(clientID, h['ref'], -1, vrep.simx_opmode_buffer)
         vrchk(vrep, res, True) # Check the return value from the previous V-REP call (res) and exit in case of error.
         res, youbotEuler = vrep.simxGetObjectOrientation(clientID, h['ref'], -1, vrep.simx_opmode_buffer)
         vrchk(vrep, res, True)
+
         # Get the distance from the beacons
-        beacon_dist = get_beacon_distance(vrep, clientID, beacons_handle, h)
-        print("Beacon dist:", beacon_dist)
-        
+        # Change the flag to True to constraint the range of the beacons
+        beacon_dist = get_beacon_distance(vrep, clientID, beacons_handle, h, flag=False)
+
         # Get data from the hokuyo - return empty if data is not captured
         scanned_points, contacts = youbot_hokuyo(vrep, h, vrep.simx_opmode_buffer)
-        ## Apply the state machine. 
+
+        # Apply the state machine.
         if fsm == 'forward':
-            
+
             # Make the robot drive with a constant speed (very simple controller, likely to overshoot). 
             # The speed is - 1 m/s, the sign indicating the direction to follow. Please note that the robot has
             # limitations and cannot reach an infinite speed. 
             forwBackVel = -1
-            
+
             # Stop when the robot is close to y = - 6.5. The tolerance has been determined by experiments: if it is too
             # small, the condition will never be met (the robot position is updated every 50 ms); if it is too large,
             # then the robot is not close enough to the position (which may be a problem if it has to pick an object,
             # for example). 
             if abs(youbotPos[1] + 6.5) < .02:
-                forwBackVel = 0 # Stop the robot. 
+                forwBackVel = 0  # Stop the robot.
                 fsm = 'backward'
                 print('Switching to state: ', fsm)
-        
-            
+
+
         elif fsm == 'backward':
             # A speed which is a function of the distance to the destination can also be used. This is useful to avoid
             # overshooting: with this controller, the speed decreases when the robot approaches the goal. 
             # Here, the goal is to reach y = -4.5. 
-            forwBackVel = - 2 * (youbotPos[1] + 4.5);
-            #             |     distance to goal
-            #             influences the maximum speed
-            
-            # Stop when the robot is close to y = 4.5. 
+            forwBackVel = - 2 * (youbotPos[1] + 4.5)
+            # distance to goal influences the maximum speed
+
+            # Stop when the robot is close to y = 4.5.
             if abs(youbotPos[1] + 4.5) < .01:
-                forwBackVel = 0 # Stop the robot. 
+                forwBackVel = 0  # Stop the robot.
                 fsm = 'right'
                 print('Switching to state: ', fsm)
         elif fsm == 'right':
             # Move sideways, again with a proportional controller (goal: x = - 4.5). 
             rightVel = - 2 * (youbotPos[0] + 4.5)
-            
+
             # Stop at x = - 4.5
             if abs(youbotPos[0] + 4.5) < .01:
-                rightVel = 0 # Stop the robot. 
+                rightVel = 0  # Stop the robot.
                 fsm = 'rotateRight'
                 print('Switching to state: ', fsm)
-        
+
         elif fsm == 'rotateRight':
             # Rotate until the robot has an angle of -pi/2 (measured with respect to the world's reference frame). 
             # Again, use a proportional controller. In case of overshoot, the angle difference will change sign, 
             # and the robot will correctly find its way back (e.g.: the angular speed is positive, the robot overshoots, 
             # the anguler speed becomes negative). 
             # youbotEuler(3) is the rotation around the vertical axis.              
-            rotateRightVel = angdiff(youbotEuler[2], (-np.pi/2)) # angdiff ensures the difference is between -pi and pi.
-            
-            # Stop when the robot is at an angle close to -pi/2. 
+            rotateRightVel = angdiff(youbotEuler[2], (-np.pi/2))
+
+            # Stop when the robot is at an angle close to -pi/2.
             if abs(angdiff(youbotEuler[2], (-np.pi/2))) < .002:
                 rotateRightVel = 0
                 fsm = 'finished'
                 print('Switching to state: ', fsm)
-        
-            
+
         elif fsm == 'finished':
             print('Finish')
             time.sleep(3)
             break
         else:
             sys.exit('Unknown state ' + fsm)
-        
-        # Update wheel velocities. 
-        h = youbot_drive(vrep, h, forwBackVel, rightVel, rotateRightVel);
-        
-        # What happens if you do not update the velocities? The simulator always considers the last speed you gave it,
+
+        # Update wheel velocities.
+        h = youbot_drive(vrep, h, forwBackVel, rightVel, rotateRightVel)
+
+        # What happens if you do not update the velocities?
+        # The simulator always considers the last speed you gave it,
         # until you set a new velocity.
-        
+
         # Send a Trigger to the simulator: this will run a time step for the physic engine
         # because of the synchronous mode.
         vrep.simxSynchronousTrigger(clientID)
@@ -189,7 +190,6 @@ while True:
     except KeyboardInterrupt:
         cleanup_vrep(vrep, clientID)
         sys.exit('Stop simulation')
-      
-      
+
 cleanup_vrep(vrep, clientID)
 print('Simulation has stopped')
