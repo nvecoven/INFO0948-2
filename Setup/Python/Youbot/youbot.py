@@ -20,6 +20,7 @@ from youbot_init import youbot_init
 from youbot_drive import youbot_drive
 from youbot_hokuyo_init import youbot_hokuyo_init
 from youbot_hokuyo import youbot_hokuyo
+from youbot_xyz_sensor import get_xyz_sensor
 from beacon import beacon_init, get_beacon_distance
 from utils_sim import angdiff
 
@@ -125,6 +126,7 @@ while True:
 
         # Get data from the hokuyo - return empty if data is not captured
         scanned_points, contacts = youbot_hokuyo(vrep, h, vrep.simx_opmode_buffer)
+        vrchk(vrep, res)
 
         # Apply the state machine.
         if fsm == 'forward':
