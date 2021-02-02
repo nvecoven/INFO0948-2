@@ -27,7 +27,7 @@ def youbot_hokuyo(vrep, h, opmode, trans=None):
         # The Hokuyo sensor has a range of 5m. If there are no obstacles, a point
         # is returned at the 5m limit. As we do not want these points, we throw
         # away all points that are 5m far from the sensor.
-        obst1 = pts1[:,3] < 4.9999
+        obst1 = pts1[:, 3] < 4.9999
         pts1 = pts1[:, 0:3]
     else:
         return [], []

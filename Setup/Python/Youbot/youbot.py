@@ -7,7 +7,7 @@ Distributed under the GNU General Public License.
 (See http://www.gnu.org/copyleft/gpl.html)
 """
 # VREP
-import vrep
+import sim as vrep
 
 # Useful import
 import time
