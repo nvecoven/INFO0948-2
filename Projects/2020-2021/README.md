@@ -8,8 +8,7 @@ In this project, you will program a robotic agent that (i) gathers information a
 
 The general framework for the project relies on [TRS](http://ulgrobotics.github.io/trs/), an open-source project developed by [Renaud Detry](http://renaud-detry.net/). You can find useful information there but all the information that you need is available in this new repository:
 *   [detailed installation instructions](https://github.com/nvecoven/INFO0948-2/tree/main/Setup),
-*   [complete demo of the youBot (Matlab)](https://github.com/nvecoven/INFO0948-2/tree/main/Setup/Python/Youbot),
-<!-- *   [more focused demos of the youBot (Matlab)](https://github.com/ULgRobotics/trs/tree/master/youBot/focused), -->
+*   [complete demo of the youBot (Python)](https://github.com/nvecoven/INFO0948-2/tree/main/Setup/Python/Youbot),
 *   [list of allowed/forbidden functions](https://github.com/nvecoven/INFO0948-2/tree/main/Setup/CoppeliaSim).
 
 The [help](https://www.coppeliarobotics.com/helpFiles/) of the robot simulator CoppeliaSim is also a good source of information.
