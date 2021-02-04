@@ -21,7 +21,7 @@ from vrchk import vrchk
 from youbot_init import youbot_init
 from youbot_hokuyo_init import youbot_hokuyo_init
 from youbot_hokuyo import youbot_hokuyo
-from youbot_xyz_sensor import get_xyz_sensor
+from youbot_xyz_sensor import youbot_xyz_sensor
 
 # Test the python implementation of a youbot
 # Initiate the connection to the simulator.
@@ -106,7 +106,7 @@ vrep.simxGetPingTime(clientID)
 # If you were to try to capture multiple images in a row, try other values than 
 # vrep.simx_opmode_oneshot_wait. 
 print('Capturing point cloud...\n');
-pts = get_xyz_sensor(vrep, h, vrep.simx_opmode_oneshot_wait)
+pts = youbot_xyz_sensor(vrep, h, vrep.simx_opmode_oneshot_wait)
 
 
 vrep.simxSynchronousTrigger(clientID)
@@ -127,16 +127,6 @@ ax.scatter(pts[:, 0], pts[:, 2], pts[:, 1], marker="*")
 #ax.scatter(pts_wall[:, 0], pts_wall[:, 2], pts_wall[:, 1], marker="+")
 
 plt.show()
-"""
 
-# Save the point cloud to pc.xyz. (This file can be displayed with http://www.meshlab.net/.)
-fileID = fopen('pc.xyz','w');
-fprintf(fileID,'#f #f #f\n', pts);
-fclose(fileID);
-fprintf('Read #i 3D points, saved to pc.xyz.\n', max(size(pts)));
-
-# Also have a look to the function youbot_hokuyo, used in the main youbot function.
-# It is simpler to use than what this script showed, but with fewer functionalities.
-"""
 cleanup_vrep(vrep, clientID)
 print('Simulation has stopped')
