@@ -26,11 +26,11 @@ The [help](https://www.coppeliarobotics.com/helpFiles/) of the robot simulator C
 
     1. (compulsory): The youBot should explore the whole map (and build an appropriate representation), by accessing the GPS coordinates (i.e., `simxGetObjectPosition` can be used on the youBot's `ref`). For this milestone, you can also call `simxGetObjectOrientation` on the youBot's `ref` whenever needed.
 
-    2. (compulsory): Same as (1.i), but `simxGetObjectPosition` cannot be used directly. The youBot has access to its distance to three beacons sending radio signals through the sensor. This information can be obtained through the function :bangbang::bangbang:  `norman_function(,flag)` with `flag = 0`. For this milestone, you can also call `simxGetObjectOrientation` on the youBot's `ref` whenever needed.    
+    2. (compulsory): Same as (1.i), but `simxGetObjectPosition` cannot be used directly. The youBot has access to its distance to three beacons sending radio signals through the sensor. This information can be obtained through the function :bangbang::bangbang:  `get_beacon_distance(vrep, clientID, beacons_handle, youbot_handle, flag)` with `flag = 0`. For this milestone, you can also call `simxGetObjectOrientation` on the youBot's `ref` whenever needed.    
 
     :bangbang::bangbang: we should probably give the actual position of the beacons... :bangbang::bangbang:
 
-    3. (optional): Same as (1.i), but `simxGetObjectPosition` cannot be used directly. The youBot has access to its distance to three beacons sending radio signals only when it is inside a radius of 5 m to the beacon. This information can be obtained through the function :bangbang::bangbang:  `norman_function(,flag)` with `flag = 1`. For this milestone, you can also call `simxGetObjectOrientation` on the youBot's `ref` whenever needed.
+    3. (optional): Same as (1.i), but `simxGetObjectPosition` cannot be used directly. The youBot has access to its distance to three beacons sending radio signals only when it is inside a radius of 5 m to the beacon. This information can be obtained through the function :bangbang::bangbang:  `get_beacon_distance(vrep, clientID, beacons_handle, youbot_handle, flag)` with `flag = 1`. For this milestone, you can also call `simxGetObjectOrientation` on the youBot's `ref` whenever needed.
 
 
 2. **Manipulation**  
