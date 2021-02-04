@@ -6,7 +6,7 @@
 
 In this project, you will program a robotic agent that (i) gathers information about its environment using the sensors, (ii) plans a set of actions to respond appropriately to sensed data based on a pre-existing strategy, and (iii) executes a set of motor commands to carry out the actions that the plan calls for. The robot will be simulated in the robot simulator [CoppeliaSim](https://www.coppeliarobotics.com/).
 
-:bangbang::bangbang: The general framework for the project relies on [TRS](http://ulgrobotics.github.io/trs/), an open-source project developed by [Renaud Detry](http://renaud-detry.net/). TRS's [website](http://ulgrobotics.github.io/trs/) and [GitHub repository](https://github.com/ULgRobotics/trs) are full of useful information:
+The general framework for the project relies on [TRS](http://ulgrobotics.github.io/trs/), an open-source project developed by [Renaud Detry](http://renaud-detry.net/). TRS's [website](http://ulgrobotics.github.io/trs/) and [GitHub repository](https://github.com/ULgRobotics/trs) are full of useful information:
 
 *   [detailed installation instructions](http://ulgrobotics.github.io/trs/setup.html),
 *   [complete demo of the youBot (Matlab)](https://github.com/ULgRobotics/trs/blob/master/youBot/),
@@ -78,8 +78,8 @@ The midterm report is due on the [Montefiore submission platform](https://submit
 
 ## Useful links
 
-*   [Robotics System Toolbox](https://www.mathworks.com/products/robotics.html), by MathWorks
-*   [Robotics Toolbox for MATLAB](https://petercorke.com/toolboxes/robotics-toolbox/), by Peter Corke
+<!-- *   [Robotics System Toolbox](https://www.mathworks.com/products/robotics.html), by MathWorks
+*   [Robotics Toolbox for MATLAB](https://petercorke.com/toolboxes/robotics-toolbox/), by Peter Corke -->
 *   [OBS Studio](https://obsproject.com/), a free and open-source software suite for recording
 
 ## Montefiore server access via ssh
@@ -87,7 +87,7 @@ The midterm report is due on the [Montefiore submission platform](https://submit
 [Document borrowed from INFO2009.](docs/devoirs-ssh.pdf)
 
 
-
+<!--
 ---
 # 2020-2021 Project
 
@@ -110,4 +110,4 @@ The robot you will use for this project is the youbot. All the scripts for langu
 
 ```bash
 ~/trs/Setup/YYY/Youbot
-```
+``` -->
