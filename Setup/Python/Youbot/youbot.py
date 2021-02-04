@@ -20,8 +20,8 @@ from youbot_init import youbot_init
 from youbot_drive import youbot_drive
 from youbot_hokuyo_init import youbot_hokuyo_init
 from youbot_hokuyo import youbot_hokuyo
-from youbot_xyz_sensor import get_xyz_sensor
-from beacon import beacon_init, get_beacon_distance
+from youbot_xyz_sensor import youbot_xyz_sensor
+from beacon import beacon_init, youbot_beacon
 from utils_sim import angdiff
 
 # Test the python implementation of a youbot
@@ -58,7 +58,7 @@ print('Connection ' + str(clientID) + ' to remote API server open')
 # See http://www.v-rep.eu/helpFiles/en/remoteApiServerSide.htm
 vrep.simxStartSimulation(clientID, vrep.simx_opmode_blocking)
 
-# Send a Trigger to the simulator: this will run a time step for the physic engine
+# Send a Trigger to the simulator: this will run a time step for the physics engine
 # because of the synchronous mode. Run several iterations to stabilize the simulation
 for i in range(int(1./timestep)):
     vrep.simxSynchronousTrigger(clientID)
@@ -69,7 +69,7 @@ h = youbot_init(vrep, clientID)
 h = youbot_hokuyo_init(vrep, h)
 beacons_handle = beacon_init(vrep, clientID)
 
-# Send a Trigger to the simulator: this will run a time step for the physic engine
+# Send a Trigger to the simulator: this will run a time step for the physics engine
 # because of the synchronous mode. Run several iterations to stabilize the simulation
 for i in range(int(1./timestep)):
     vrep.simxSynchronousTrigger(clientID)
@@ -84,6 +84,12 @@ for i in range(int(1./timestep)):
 ##############################################################################
 # Define all the variables which will be used through the whole simulation.
 # Important: Set their initial values.
+
+# Get the position of the beacons in the world coordinate frame (x, y)
+beacons_world_pos = np.zeros((len(beacons_handle), 3))
+for i, beacon in enumerate(beacons_handle):   
+    res, beacons_world_pos[i] = vrep.simxGetObjectPosition(clientID, beacon, -1,
+                                                           vrep.simx_opmode_buffer)
 
 # Parameters for controlling the youBot's wheels: at each iteration,
 # those values will be set for the wheels.
@@ -122,7 +128,7 @@ while True:
 
         # Get the distance from the beacons
         # Change the flag to True to constraint the range of the beacons
-        beacon_dist = get_beacon_distance(vrep, clientID, beacons_handle, h, flag=False)
+        beacon_dist = youbot_beacon(vrep, clientID, beacons_handle, h, flag=False)
 
         # Get data from the hokuyo - return empty if data is not captured
         scanned_points, contacts = youbot_hokuyo(vrep, h, vrep.simx_opmode_buffer)
