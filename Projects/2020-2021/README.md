@@ -17,8 +17,6 @@ The [help](https://www.coppeliarobotics.com/helpFiles/) of the robot simulator C
 
 ## Specific milestones
 
-:bangbang::bangbang: provide the correct house :bangbang::bangbang:
-
 1. **Navigation**  
     For this milestone, the youBot will need to navigate in an unknown environment.
 
@@ -26,11 +24,11 @@ The [help](https://www.coppeliarobotics.com/helpFiles/) of the robot simulator C
 
     1. (compulsory): The youBot should explore the whole map (and build an appropriate representation), by accessing the GPS coordinates (i.e., `simxGetObjectPosition` can be used on the youBot's `ref`). For this milestone, you can also call `simxGetObjectOrientation` on the youBot's `ref` whenever needed.
 
-    2. (compulsory): Same as (1.i), but `simxGetObjectPosition` cannot be used directly. The youBot has access to its distance to three beacons sending radio signals through the sensor. This information can be obtained through the function :bangbang::bangbang:  `get_beacon_distance(vrep, clientID, beacons_handle, youbot_handle, flag)` with `flag = 0`. For this milestone, you can also call `simxGetObjectOrientation` on the youBot's `ref` whenever needed.    
+    2. (compulsory): Same as (1.i), but `simxGetObjectPosition` cannot be used directly. The youBot has access to its distance to three beacons sending radio signals through the sensor. This information can be obtained through the function `youbot_beacon(vrep, clientID, beacons_handle, youbot_handle, flag, noise=True)` with `flag = 0`. For this milestone, you can also call `simxGetObjectOrientation` on the youBot's `ref` whenever needed.    
 
     :bangbang::bangbang: we should probably give the actual position of the beacons... :bangbang::bangbang:
 
-    3. (optional): Same as (1.i), but `simxGetObjectPosition` cannot be used directly. The youBot has access to its distance to three beacons sending radio signals only when it is inside a radius of 5 m to the beacon. This information can be obtained through the function :bangbang::bangbang:  `get_beacon_distance(vrep, clientID, beacons_handle, youbot_handle, flag)` with `flag = 1`. For this milestone, you can also call `simxGetObjectOrientation` on the youBot's `ref` whenever needed.
+    3. (optional): Same as (1.i), but `simxGetObjectPosition` cannot be used directly. The youBot has access to its distance to three beacons sending radio signals only when it is inside a radius of 5 m to the beacon. This information can be obtained through the function `youbot_beacon(vrep, clientID, beacons_handle, youbot_handle, flag, noise=True)` with `flag = 1`. For this milestone, you can also call `simxGetObjectOrientation` on the youBot's `ref` whenever needed.
 
 
 2. **Manipulation**  
@@ -63,7 +61,7 @@ Each team must submit a _zip_ archive containing:
 
 *   A short commented video or a link to the video (max. 5 minutes).
 
-    In the video, the youBot should explore and eventually map its entire environment. The video should show the youtBot in action but should also emphasize how the youBot plans its actions. For example, showing the evolution of the map as the youBot builds it, showing potential new targets to explore and how the youBot chooses one, showing the planned trajectory to the chosen target, etc.
+    In the video, the youBot should explore and eventually map its entire environment. The video should show the youBot in action but should also emphasize how the youBot plans its actions. For example, showing the evolution of the map as the youBot builds it, showing potential new targets to explore and how the youBot chooses one, showing the planned trajectory to the chosen target, etc.
 
     The video should last (at most) 5 minutes.
 
