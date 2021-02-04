@@ -10,7 +10,7 @@ import numpy as np
 from vrchk import vrchk
 
 
-def get_xyz_sensor(vrep, youbot_handle, opmode):
+def youbot_xyz_sensor(vrep, youbot_handle, opmode):
     """Get the xyz data from the depth camera.
 
     Parameters

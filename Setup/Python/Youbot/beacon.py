@@ -16,9 +16,11 @@ def beacon_init(vrep, clientID):
     
     return beacons
 
-def get_beacon_distance(vrep, clientID, beacons_handle, youbot_handle, flag):
+def youbot_beacon(vrep, clientID, beacons_handle, youbot_handle, flag, noise=True):
     """Return the position of the beacons with respect to the youbot.
 
+    Several models exist:
+        -
     Add Gaussian noise to the distance: d ~ N(d_true, std_d)
 
     Parameters
@@ -31,10 +33,10 @@ def get_beacon_distance(vrep, clientID, beacons_handle, youbot_handle, flag):
 
     Return
     ------
-    dist: (np.array of shape=(3)), the distance from the youbot to the beacons
+    dist: (np.array of shape=(nb_beacons)), the distance from the youbot to the beacons
             If the beacon is to far, return np.nan
     """
-    dist = np.zeros(3, dtype=np.float32)
+    dist = np.zeros(len(beacons_handle), dtype=np.float32)
     std = 0.01  # Error of ~1cm
     radius = 5.  # Range of the beacon
     # Loop
@@ -43,8 +45,11 @@ def get_beacon_distance(vrep, clientID, beacons_handle, youbot_handle, flag):
         res, beacon_pos = vrep.simxGetObjectPosition(clientID, beacon,
                                                      youbot_handle["ref"],
                                                      vrep.simx_opmode_streaming) 
-        # Get the noisy distance 
-        dist[i] = np.linalg.norm(beacon_pos) + np.random.default_rng().normal(0, std)
+        # Get the distance 
+        dist[i] = np.linalg.norm(beacon_pos)
+        # Add noise
+        if noise:
+            dist[i] += np.random.default_rng().normal(0, std)
     # If the range is take into account
     if flag:
         dist[dist > radius] = np.nan
