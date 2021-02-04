@@ -6,7 +6,7 @@
 
 In this project, you will program a robotic agent that (i) gathers information about its environment using the sensors, (ii) plans a set of actions to respond appropriately to sensed data based on a pre-existing strategy, and (iii) executes a set of motor commands to carry out the actions that the plan calls for. The robot will be simulated in the robot simulator [CoppeliaSim](https://www.coppeliarobotics.com/).
 
-:bangbang::bangbang: The general framework for the project relies on [TRS](http://ulgrobotics.github.io/trs/), an open-source project developed by [Renaud Detry](http://renaud-detry.net/). TRS's [website](http://ulgrobotics.github.io/trs/) and [GitHub repository](https://github.com/ULgRobotics/trs) are full of useful information:
+The general framework for the project relies on [TRS](http://ulgrobotics.github.io/trs/), an open-source project developed by [Renaud Detry](http://renaud-detry.net/). TRS's [website](http://ulgrobotics.github.io/trs/) and [GitHub repository](https://github.com/ULgRobotics/trs) are full of useful information:
 
 *   [detailed installation instructions](http://ulgrobotics.github.io/trs/setup.html),
 *   [complete demo of the youBot (Matlab)](https://github.com/ULgRobotics/trs/blob/master/youBot/),
@@ -26,11 +26,11 @@ The [help](https://www.coppeliarobotics.com/helpFiles/) of the robot simulator C
 
     1. (compulsory): The youBot should explore the whole map (and build an appropriate representation), by accessing the GPS coordinates (i.e., `simxGetObjectPosition` can be used on the youBot's `ref`). For this milestone, you can also call `simxGetObjectOrientation` on the youBot's `ref` whenever needed.
 
-    2. (compulsory): Same as (1.i), but `simxGetObjectPosition` cannot be used directly. The youBot has access to its distance to three beacons sending radio signals through the sensor. This information can be obtained through the function :bangbang::bangbang:  `norman_function(,flag)` with `flag = 0`. For this milestone, you can also call `simxGetObjectOrientation` on the youBot's `ref` whenever needed.    
+    2. (compulsory): Same as (1.i), but `simxGetObjectPosition` cannot be used directly. The youBot has access to its distance to three beacons sending radio signals through the sensor. This information can be obtained through the function :bangbang::bangbang:  `get_beacon_distance(vrep, clientID, beacons_handle, youbot_handle, flag)` with `flag = 0`. For this milestone, you can also call `simxGetObjectOrientation` on the youBot's `ref` whenever needed.    
 
     :bangbang::bangbang: we should probably give the actual position of the beacons... :bangbang::bangbang:
 
-    3. (optional): Same as (1.i), but `simxGetObjectPosition` cannot be used directly. The youBot has access to its distance to three beacons sending radio signals only when it is inside a radius of 5 m to the beacon. This information can be obtained through the function :bangbang::bangbang:  `norman_function(,flag)` with `flag = 1`. For this milestone, you can also call `simxGetObjectOrientation` on the youBot's `ref` whenever needed.
+    3. (optional): Same as (1.i), but `simxGetObjectPosition` cannot be used directly. The youBot has access to its distance to three beacons sending radio signals only when it is inside a radius of 5 m to the beacon. This information can be obtained through the function :bangbang::bangbang:  `get_beacon_distance(vrep, clientID, beacons_handle, youbot_handle, flag)` with `flag = 1`. For this milestone, you can also call `simxGetObjectOrientation` on the youBot's `ref` whenever needed.
 
 
 2. **Manipulation**  
@@ -78,8 +78,8 @@ The midterm report is due on the [Montefiore submission platform](https://submit
 
 ## Useful links
 
-*   [Robotics System Toolbox](https://www.mathworks.com/products/robotics.html), by MathWorks
-*   [Robotics Toolbox for MATLAB](https://petercorke.com/toolboxes/robotics-toolbox/), by Peter Corke
+<!-- *   [Robotics System Toolbox](https://www.mathworks.com/products/robotics.html), by MathWorks
+*   [Robotics Toolbox for MATLAB](https://petercorke.com/toolboxes/robotics-toolbox/), by Peter Corke -->
 *   [OBS Studio](https://obsproject.com/), a free and open-source software suite for recording
 
 ## Montefiore server access via ssh
@@ -87,7 +87,7 @@ The midterm report is due on the [Montefiore submission platform](https://submit
 [Document borrowed from INFO2009.](docs/devoirs-ssh.pdf)
 
 
-
+<!--
 ---
 # 2020-2021 Project
 
@@ -110,4 +110,4 @@ The robot you will use for this project is the youbot. All the scripts for langu
 
 ```bash
 ~/trs/Setup/YYY/Youbot
-```
+``` -->

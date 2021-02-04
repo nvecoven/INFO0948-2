@@ -1,4 +1,4 @@
-# Setup for the project.
+# Setup for the project
 
 ## CoppeliaSim installation
 
