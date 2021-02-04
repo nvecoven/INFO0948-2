@@ -6,12 +6,11 @@
 
 In this project, you will program a robotic agent that (i) gathers information about its environment using the sensors, (ii) plans a set of actions to respond appropriately to sensed data based on a pre-existing strategy, and (iii) executes a set of motor commands to carry out the actions that the plan calls for. The robot will be simulated in the robot simulator [CoppeliaSim](https://www.coppeliarobotics.com/).
 
-The general framework for the project relies on [TRS](http://ulgrobotics.github.io/trs/), an open-source project developed by [Renaud Detry](http://renaud-detry.net/). TRS's [website](http://ulgrobotics.github.io/trs/) and [GitHub repository](https://github.com/ULgRobotics/trs) are full of useful information:
-
-*   [detailed installation instructions](http://ulgrobotics.github.io/trs/setup.html),
-*   [complete demo of the youBot (Matlab)](https://github.com/ULgRobotics/trs/blob/master/youBot/),
-*   [more focused demos of the youBot (Matlab)](https://github.com/ULgRobotics/trs/tree/master/youBot/focused),
-*   [list of forbidden functions](http://ulgrobotics.github.io/trs/project.html#api).
+The general framework for the project relies on [TRS](http://ulgrobotics.github.io/trs/), an open-source project developed by [Renaud Detry](http://renaud-detry.net/). You can find useful information there but all the information that you need is available in this new repository:
+*   [detailed installation instructions](https://github.com/nvecoven/INFO0948-2/tree/main/Setup),
+*   [complete demo of the youBot (Matlab)](https://github.com/nvecoven/INFO0948-2/tree/main/Setup/Python/Youbot),
+<!-- *   [more focused demos of the youBot (Matlab)](https://github.com/ULgRobotics/trs/tree/master/youBot/focused), -->
+*   [list of allowed/forbidden functions](https://github.com/nvecoven/INFO0948-2/tree/main/Setup/CoppeliaSim).
 
 The [help](https://www.coppeliarobotics.com/helpFiles/) of the robot simulator CoppeliaSim is also a good source of information.
 
