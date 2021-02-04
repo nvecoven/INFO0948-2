@@ -33,7 +33,7 @@ TRS provides a recipe for organizing a Master-level robotics project. The projec
 *   a Python/MATLAB script that illustrates access the robot's sensors and actuators
 *   a CoppeliaSim model of a building floor, and a few Python/MATLAB scripts that make programming easier
 
-## How to Use
+## How to use
 
 TRS is intended primarily for teachers, but students are welcome to use it for personal projects.
 
