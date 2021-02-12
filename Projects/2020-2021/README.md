@@ -26,6 +26,8 @@ The [help](https://www.coppeliarobotics.com/helpFiles/) of the robot simulator C
 
     3. (optional): Same as (1.i), but `simxGetObjectPosition` cannot be used directly. The youBot has access to its distance to three beacons sending radio signals only when it is inside a radius of 5 m to the beacon. This information can be obtained through the function `youbot_beacon(vrep, clientID, beacons_handle, youbot_handle, flag, noise=True)` with `flag = 1`. For this milestone, you can also call `simxGetObjectOrientation` on the youBot's `ref` whenever needed.
 
+The size of the house is fixed (see house.ttt). However, the youBot does not know the layout of the house a priori. All obstacles are high enough to be detectable with the Hokuyo sensor. There are no holes or open doors leading outside the house. There are three tables around the house. The location of tables with objects is fixed, but the target table's location is not. Tables are cylinders, 800 mm in diameter, and 185 mm in height.
+
 
 2. **Manipulation**  
     For this milestone, the youBot will need to access a “TargetTable” object, which position you will have to find thanks to the youBot's sensors. Note that this table is the same as the ones on which objects are initially lying. _To distinguish them, you can make the assumption that the "TargetTable" will always start empty (no objects initially lying on it)._
