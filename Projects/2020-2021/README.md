@@ -44,7 +44,7 @@ The [help](https://www.coppeliarobotics.com/helpFiles/) of the robot simulator C
 
 * Important dates (unless otherwise noted, all project items are due by 11:59 pm):
 
-    * :bangbang: end of March: midterm code and report,
+    * :bangbang: 01/04/2021: midterm code and report,
     * :bangbang: end of May: final code and report,
     * :bangbang: June (during the exam session): final presentation.
 
@@ -70,7 +70,7 @@ Each team must submit a _zip_ archive containing:
     The report should be (at most) one page long using the provided LaTeX template ([ieeeconf.zip](docs/ieeeconf.zip)).
 
 
-The midterm report is due on the [Montefiore submission platform](https://submit.montefiore.ulg.ac.be/) on TBD.
+The midterm report is due on the [Montefiore submission platform](https://submit.montefiore.ulg.ac.be/) on 01/04/2021.
 
 ## Useful links
 
