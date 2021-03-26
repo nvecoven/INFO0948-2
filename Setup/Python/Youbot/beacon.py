@@ -44,7 +44,7 @@ def youbot_beacon(vrep, clientID, beacons_handle, youbot_handle, flag, noise=Tru
         # Get the position (x, y, z)
         res, beacon_pos = vrep.simxGetObjectPosition(clientID, beacon,
                                                      youbot_handle["ref"],
-                                                     vrep.simx_opmode_streaming) 
+                                                     vrep.simx_opmode_buffer) 
         # Get the distance 
         dist[i] = np.linalg.norm(beacon_pos)
         # Add noise
