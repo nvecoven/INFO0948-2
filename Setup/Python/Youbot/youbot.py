@@ -13,6 +13,7 @@ import sim as vrep
 import time
 import numpy as np
 import sys
+import matplotlib.pyplot as plt
 
 from cleanup_vrep import cleanup_vrep
 from vrchk import vrchk
@@ -60,14 +61,17 @@ vrep.simxStartSimulation(clientID, vrep.simx_opmode_blocking)
 
 # Send a Trigger to the simulator: this will run a time step for the physics engine
 # because of the synchronous mode. Run several iterations to stabilize the simulation
+
 for i in range(int(1./timestep)):
     vrep.simxSynchronousTrigger(clientID)
     vrep.simxGetPingTime(clientID)
+
 
 # Retrieve all handles, mostly the Hokuyo.
 h = youbot_init(vrep, clientID)
 h = youbot_hokuyo_init(vrep, h)
 beacons_handle = beacon_init(vrep, clientID)
+
 
 # Send a Trigger to the simulator: this will run a time step for the physics engine
 # because of the synchronous mode. Run several iterations to stabilize the simulation
@@ -76,6 +80,8 @@ for i in range(int(1./timestep)):
     vrep.simxGetPingTime(clientID)
 
 
+# Time
+t_run = []
 
 ##############################################################################
 #                                                                            #
@@ -86,10 +92,11 @@ for i in range(int(1./timestep)):
 # Important: Set their initial values.
 
 # Get the position of the beacons in the world coordinate frame (x, y)
+# simx_opmode_oneshot_wait is used. This enforces to have a valid response.
 beacons_world_pos = np.zeros((len(beacons_handle), 3))
 for i, beacon in enumerate(beacons_handle):   
     res, beacons_world_pos[i] = vrep.simxGetObjectPosition(clientID, beacon, -1,
-                                                           vrep.simx_opmode_buffer)
+                                                           vrep.simx_opmode_oneshot_wait)
 
 # Parameters for controlling the youBot's wheels: at each iteration,
 # those values will be set for the wheels.
@@ -116,14 +123,16 @@ for i in range(int(1./timestep)):
 # Start the demo. 
 while True:
     try:
+        # Time management
+        t_loop = time.perf_counter()
         # Check the connection with the simulator
         if vrep.simxGetConnectionId(clientID) == -1:
             sys.exit('Lost connection to remote API.')
 
         # Get the position and the orientation of the robot.
-        res, youbotPos = vrep.simxGetObjectPosition(clientID, h['ref'], -1, vrep.simx_opmode_buffer)
+        res, youbotPos = vrep.simxGetObjectPosition(clientID, h['ref'], -1, vrep.simx_opmode_streaming)
         vrchk(vrep, res, True) # Check the return value from the previous V-REP call (res) and exit in case of error.
-        res, youbotEuler = vrep.simxGetObjectOrientation(clientID, h['ref'], -1, vrep.simx_opmode_buffer)
+        res, youbotEuler = vrep.simxGetObjectOrientation(clientID, h['ref'], -1, vrep.simx_opmode_streaming)
         vrchk(vrep, res, True)
 
         # Get the distance from the beacons
@@ -133,7 +142,7 @@ while True:
         # Get data from the hokuyo - return empty if data is not captured
         scanned_points, contacts = youbot_hokuyo(vrep, h, vrep.simx_opmode_buffer)
         vrchk(vrep, res)
-
+       
         # Apply the state machine.
         if fsm == 'forward':
 
@@ -148,7 +157,7 @@ while True:
             # for example). 
             if abs(youbotPos[1] + 6.5) < .02:
                 forwBackVel = 0  # Stop the robot.
-                fsm = 'backward'
+                fsm = 'finished'
                 print('Switching to state: ', fsm)
 
 
@@ -204,6 +213,8 @@ while True:
 
         # Send a Trigger to the simulator: this will run a time step for the physic engine
         # because of the synchronous mode.
+        end_time = time.perf_counter()
+        t_run.append((end_time-t_loop)*1000.)  # In ms
         vrep.simxSynchronousTrigger(clientID)
         vrep.simxGetPingTime(clientID)
     except KeyboardInterrupt:
@@ -212,3 +223,10 @@ while True:
 
 cleanup_vrep(vrep, clientID)
 print('Simulation has stopped')
+# Histogram of time loop
+n, x, _ = plt.hist(t_run, bins=100)
+plt.vlines(np.min(t_run), 0, np.max(n), linewidth=1.5, colors="r")
+plt.vlines(np.max(t_run), 0, np.max(n), linewidth=1.5, colors="k")
+plt.xlabel(r"time $t_{\rm{loop}}$ (ms)")
+plt.ylabel("Number of loops (-)")
+plt.show()
