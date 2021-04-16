@@ -70,7 +70,7 @@ for i in range(int(1./timestep)):
 # Retrieve all handles, mostly the Hokuyo.
 h = youbot_init(vrep, clientID)
 h = youbot_hokuyo_init(vrep, h)
-beacons_handle = beacon_init(vrep, clientID)
+beacons_handle = beacon_init(vrep, clientID, h)
 
 
 # Send a Trigger to the simulator: this will run a time step for the physics engine
@@ -78,7 +78,6 @@ beacons_handle = beacon_init(vrep, clientID)
 for i in range(int(1./timestep)):
     vrep.simxSynchronousTrigger(clientID)
     vrep.simxGetPingTime(clientID)
-
 
 # Time
 t_run = []
@@ -115,7 +114,7 @@ res, youbotPos = vrep.simxGetObjectPosition(clientID, h['ref'], -1, vrep.simx_op
 h = youbot_drive(vrep, h, forwBackVel, rightVel, rotateRightVel)
 
 # Send a Trigger to the simulator: this will run a time step for the physic engine
-# because of the synchronous mode. Run several iterations to stabilize the simulation
+# because of the synchronous mode. Run several iterations to stabilize the simulation.
 for i in range(int(1./timestep)):
     vrep.simxSynchronousTrigger(clientID)
     vrep.simxGetPingTime(clientID)
