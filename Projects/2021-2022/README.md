@@ -1,4 +1,4 @@
-# 2020-2021 Project
+# 2021-2022 Project
 
 ![house](img/house.png)
 
@@ -44,7 +44,7 @@ The [help](https://www.coppeliarobotics.com/helpFiles/) of the robot simulator C
 
 * Important dates (unless otherwise noted, all project items are due by 11:59 pm):
 
-    * :bangbang: 01/04/2021: midterm code and report,
+    * :bangbang: TBD: midterm code and report,
     * :bangbang: end of May: final code and report,
     * :bangbang: June (during the exam session): final presentation.
 
@@ -82,28 +82,3 @@ The midterm report is due on the [Montefiore submission platform](https://submit
 
 [Document borrowed from INFO2009.](docs/devoirs-ssh.pdf)
 
-
-<!--
----
-# 2020-2021 Project
-
-Pour avoir une idée ....
-
-## Goal
-
-The goal is to blablabla ....
-
-The main scene you will be working on is the "HOUSE" scene. You can find it in
-
-```bash
-~/trs/Setup/Coppelia/Scenes/House
-```
-
-In that folder, you will also find the appropriate instructions files needed for the objects placement
-(in matlab and python format).
-
-The robot you will use for this project is the youbot. All the scripts for language "YYY" relative to this bot are given in
-
-```bash
-~/trs/Setup/YYY/Youbot
-``` -->
