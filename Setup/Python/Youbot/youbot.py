@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 The aim of this code is to show small examples of controlling the displacement of the robot in V-REP. 
-
 (C) Copyright Renaud Detry 2013, Mathieu Baijot 2017, Norman Marlier 2019.
 Distributed under the GNU General Public License.
 (See http://www.gnu.org/copyleft/gpl.html)
@@ -156,7 +155,7 @@ while True:
             # for example). 
             if abs(youbotPos[1] + 6.5) < .02:
                 forwBackVel = 0  # Stop the robot.
-                fsm = 'finished'
+                fsm = 'backward'
                 print('Switching to state: ', fsm)
 
 
