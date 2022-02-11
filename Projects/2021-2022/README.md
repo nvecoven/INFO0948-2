@@ -40,7 +40,7 @@ The [help](https://www.coppeliarobotics.com/helpFiles/) of the robot simulator C
 
 * You can work in teams of up to two people.
 
-* Your deliverables must be submitted as a _zip_ archive on the [Montefiore submission platform](https://submit.montefiore.ulg.ac.be/).
+* Your deliverables must be submitted as a _zip_ archive on the [Gradescope platform](https://www.gradescope.com/) in Assignements.
 
 * Important dates (unless otherwise noted, all project items are due by 11:59 pm):
 
@@ -70,7 +70,7 @@ Each team must submit a _zip_ archive containing:
     The report should be (at most) one page long using the provided LaTeX template ([ieeeconf.zip](docs/ieeeconf.zip)).
 
 
-The midterm report is due on the [Montefiore submission platform](https://submit.montefiore.ulg.ac.be/) on TBD.
+The midterm report is due on the [Gradescope platform](https://www.gradescope.com/) in Assignements on TBD.
 
 ## Useful links
 
