@@ -53,7 +53,7 @@ The [help](https://www.coppeliarobotics.com/helpFiles/) of the robot simulator C
 
 For the midterm report, we expect you to complete the **Navigation (1.i)**.
 
-Each team must submit their work in two parts on [Gradescope](https://www.gradescope.com/) before Wed April 20, 2022 at 8PM.
+Each team must submit their work in two parts on [Gradescope](https://www.gradescope.com/) before :bangbang: Wed April 20, 2022 at 8PM :bangbang:.
 
 1.  In *Midterm (code + video)*, submit a _zip_ archive that contains:
 
