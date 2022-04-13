@@ -71,7 +71,7 @@ Each team must submit their work in two parts on [Gradescope](https://www.grades
 
     The report should be (at most) one page long using the provided LaTeX template ([ieeeconf.zip](docs/ieeeconf.zip)).
 
-## Gradescope submission
+## Help for Gradescope submission
 
 Each student should register on [Gradescope](https://www.gradescope.com/) using his or her `@student.uliege.be` address. If you don't see the class INFO0948-2 on your dashboard, contact us on [Ed](https://edstem.org/us/dashboard) as soon as possible (don't wait the day before the deadline ;-). 
 
