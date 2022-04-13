@@ -42,9 +42,9 @@ The [help](https://www.coppeliarobotics.com/helpFiles/) of the robot simulator C
 
 * Your deliverables must be submitted as a _zip_ archive on the [Gradescope platform](https://www.gradescope.com/) in Assignements.
 
-* Important dates (unless otherwise noted, all project items are due by 11:59 pm):
+* Important dates (unless otherwise noted, all project items are due by 8 PM):
 
-    * :bangbang: TBD: midterm code and report,
+    * :bangbang: Wed April 20, 2022 at 8 PM: midterm code and report,
     * :bangbang: end of May: final code and report,
     * :bangbang: June (during the exam session): final presentation.
 
@@ -53,24 +53,35 @@ The [help](https://www.coppeliarobotics.com/helpFiles/) of the robot simulator C
 
 For the midterm report, we expect you to complete the **Navigation (1.i)**.
 
-Each team must submit a _zip_ archive containing:
+Each team must submit their work in two parts on [Gradescope](https://www.gradescope.com/) before Wed April 20, 2022 at 8PM.
 
-*   The source code of the youBot.
+1.  In *Midterm (code + video)*, submit a _zip_ archive that contains:
 
-*   A short (commented) video or a link to the video (max. 5 minutes).
+    *   The source code of the youBot.
 
-    In the video, the youBot should explore and eventually map its entire environment. The video should show the youBot in action but should also emphasize how the youBot plans its actions. For example, showing the evolution of the map as the youBot builds it, showing potential new targets to explore and how the youBot chooses one, showing the planned trajectory to the chosen target, etc.
+    *   A short (commented) video or a link to the video (max. 5 minutes).
 
-    The video should last (at most) 5 minutes.
+        In the video, the youBot should explore and eventually map its entire environment. The video should show the youBot in action but should also emphasize how the youBot plans its actions. For example, showing the evolution of the map as the youBot builds it, showing potential new targets to explore and how the youBot chooses one, showing the planned trajectory to the chosen target, etc.
+        
+        The video should last (at most) 5 minutes.
 
-*   A short written report named `midterm-report.pdf` (max. 1 page).
+2.  In *Midterm (report)*, submit a short written report named `midterm-report.pdf` (max. 1 page).
 
     In the report, you should summarize the main points of your implementation. The report should _not_ consist of a list of functions that you used in your project. We are more interested in the _why_ than the _what_. For example, if you chose a specific pathfinding algorithm, explain why this one and not another. In addition, the report should contain a diagram of the finite state machine controlling your youBot.
 
     The report should be (at most) one page long using the provided LaTeX template ([ieeeconf.zip](docs/ieeeconf.zip)).
 
+## Gradescope submission
 
-The midterm report is due on the [Gradescope platform](https://www.gradescope.com/) in Assignements on TBD.
+Each student should register on [Gradescope](https://www.gradescope.com/) using his or her `@student.uliege.be` address. If you don't see the class INFO0948-2 on your dashboard, contact us on [Ed](https://edstem.org/us/dashboard) as soon as possible (don't wait the day before the deadline ;-). 
+
+Each group should submit their work on [Gradescope](https://www.gradescope.com/). Make sure that all group members are correctly added to the submission!
+
+If you are not familiar with Gradescope, please click on each step of the following guideline:
+- [PDF submission](https://help.gradescope.com/article/ccbpppziu9-student-submit-work#submitting_a_pdf), 
+- [Code submission](https://help.gradescope.com/article/ccbpppziu9-student-submit-work#code_submissions), 
+- [Adding group members](https://help.gradescope.com/article/m5qz2xsnjy-student-add-group-members).
+
 
 ## Useful links
 
