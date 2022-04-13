@@ -57,7 +57,7 @@ Each team must submit a _zip_ archive containing:
 
 *   The source code of the youBot.
 
-*   A short commented video or a link to the video (max. 5 minutes).
+*   A short (commented) video or a link to the video (max. 5 minutes).
 
     In the video, the youBot should explore and eventually map its entire environment. The video should show the youBot in action but should also emphasize how the youBot plans its actions. For example, showing the evolution of the map as the youBot builds it, showing potential new targets to explore and how the youBot chooses one, showing the planned trajectory to the chosen target, etc.
 
