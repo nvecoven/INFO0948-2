@@ -89,6 +89,9 @@ If you are not familiar with Gradescope, please click on each step of the follow
 *   [Robotics Toolbox for MATLAB](https://petercorke.com/toolboxes/robotics-toolbox/), by Peter Corke -->
 *   [OBS Studio](https://obsproject.com/), a free and open-source software suite for recording
 
+*   Taheri, Hamid, Bing Qiao, and Nurallah Ghaeminezhad. “Kinematic Model of a Four Mecanum Wheeled Mobile Robot.” International Journal of Computer Applications 113 (March 1, 2015): 6–9. https://doi.org/10.5120/19804-1586.
+*   Maulana, E., M. A. Muslim, and V. Hendrayawan. “Inverse Kinematic Implementation of Four-Wheels Mecanum Drive Mobile Robot Using Stepper Motors.” In 2015 International Seminar on Intelligent Technology and Its Applications (ISITIA), 51–56, 2015. https://doi.org/10.1109/ISITIA.2015.7219952.
+
 ## Montefiore server access via ssh
 
 [Document borrowed from INFO2009.](docs/devoirs-ssh.pdf)
