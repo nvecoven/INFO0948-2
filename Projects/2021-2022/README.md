@@ -71,6 +71,44 @@ Each team must submit their work in two parts on [Gradescope](https://www.grades
 
     The report should be (at most) one page long using the provided LaTeX template ([ieeeconf.zip](docs/ieeeconf.zip)).
 
+## Final report
+
+For the final report, we expect you to complete all compulsory milestones (and some of the optional milestones if you want to).
+
+Each team must submit their work in two parts on [Gradescope](https://www.gradescope.com/) before :bangbang: Sun May 29, 2022 at 8PM :bangbang:.
+
+1.  In *Final (code + video)*, submit a _zip_ archive that contains:
+
+    *   The source code of the youBot.
+
+    *   A video (or a link to the video in the report).
+
+        In the video, the youBot should solve the milestones on the provided map. The video should show the youtBot in action but should also emphasize how the youBot plans its actions.
+
+2.  In *Final (report)*, submit a short written report named `final-report.pdf` (between five and ten pages).
+
+    In the report, you should summarize the main points of your implementation. The report should not consist of a list of functions that you used in your project. We are more interested in the why than the what. For example, if you chose a specific pathfinding algorithm, explain why this one and not another.
+
+    In addition, the report should contain a diagram of the finite state machine controlling your youBot.
+    
+    Finally, the report should also contain an histogram of the computation times of your loop without `vrep.simxSynchronousTrigger` and `vrep.simxGetPingTime`.
+    
+    The report should be between five and ten pages long using the provided LaTeX template ([ieeeconf.zip](docs/ieeeconf.zip)).
+
+
+## Final presentation
+
+The final presentation consists of:
+
+- a demonstration of your solutions on a new map with a live comment from your team. The submitted video will be used as a back-up solution in case your code doesn't run as expected on the new map;
+
+- (if needed) a short slide presentation to further explain some of your ideas;
+
+- a discussion with the teaching team to place your work in the context of the course.
+
+When you arrive (two hours before your presentation), you will receive the exam map. You will have two hours to run your code on this new map and produce a video of your robot achieving the milestones (no need to add audio comments). You will be free to modify your code if needed during that time. This will be done on your laptop (we highly recommend using one of the laptops that you used to develop your project).
+
+
 ## Help for Gradescope submission
 
 Each student should register on [Gradescope](https://www.gradescope.com/) using his or her `@student.uliege.be` address. If you don't see the class INFO0948-2 on your dashboard, contact us on [Ed](https://edstem.org/us/dashboard) as soon as possible (don't wait the day before the deadline ;-). 
