@@ -45,7 +45,7 @@ The [help](https://www.coppeliarobotics.com/helpFiles/) of the robot simulator C
 * Important dates (unless otherwise noted, all project items are due by 8 PM):
 
     * :bangbang: Wed April 20, 2022 at 8 PM: midterm code and report,
-    * :bangbang: end of May: final code and report,
+    * :bangbang: Sun May 29 at 8 PM: final code and report,
     * :bangbang: June (during the exam session): final presentation.
 
 
